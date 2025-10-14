@@ -1,0 +1,10 @@
+{
+    "name": "Combined_Weathers_Toolkit",
+    "version_number": "1.0.0",
+    "website_url": "https://github.com/ZigzagAwaka/CombinedWeathersToolkit",
+    "description": "Provides easy ways for developers and users to register combined weather effects without needing to write code.",
+    "dependencies": [
+        "mrov-WeatherTweaks-1.1.5",
+        "BepInEx-BepInExPack-5.4.2100"
+    ]
+}
