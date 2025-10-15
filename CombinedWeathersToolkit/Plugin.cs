@@ -15,7 +15,14 @@ namespace CombinedWeathersToolkit
 
         public static Plugin instance;
         public static ManualLogSource logger;
+        internal static string PredefinedFileName = "zigzag.predefinedweathers.cwt.json";
         internal static Config config { get; private set; } = null!;
+
+        internal static void VerboseLog(object message)
+        {
+            if (config.VerboseLogs.Value)
+                logger.LogWarning(message);
+        }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("CodeQuality", "IDE0051")]
         void Awake()
@@ -25,12 +32,10 @@ namespace CombinedWeathersToolkit
             config = new Config(Config);
             config.SetupCustomConfigs();
 
-            if (config.RegisterPredefinedCombinedWeathers.Value)
-                PredefinedWeathers.Setup();
             if (config.AllowConfigRegistery.Value)
-                ConfigRegistery.Setup();
+                ConfigRegistery.LoadAllConfigValues();
             if (config.AllowJsonRegistery.Value)
-                JsonRegistery.Setup();
+                JsonRegistery.LoadAllJsonFiles();
 
             logger.LogInfo($"{NAME} is loaded !");
         }

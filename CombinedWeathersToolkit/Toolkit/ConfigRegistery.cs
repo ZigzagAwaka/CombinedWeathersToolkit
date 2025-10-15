@@ -2,7 +2,7 @@
 {
     internal class ConfigRegistery
     {
-        internal static void Setup()
+        internal static void LoadAllConfigValues()
         {
 
         }
