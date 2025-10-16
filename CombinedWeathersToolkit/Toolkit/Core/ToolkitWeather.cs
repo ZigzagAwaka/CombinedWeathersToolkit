@@ -19,6 +19,7 @@ namespace CombinedWeathersToolkit.Toolkit.Core
         public string? LevelWeights;
         public string? WeatherToWeatherWeights;
         public float? ProgressingTime;
+        internal float? WeightModifier;
         public List<WeatherResolvable> Weathers = new List<WeatherResolvable>();
 
         public void SetTypeFromString(string typeString)
@@ -87,12 +88,12 @@ namespace CombinedWeathersToolkit.Toolkit.Core
             switch (Type)
             {
                 case CustomWeatherType.Combined:
-                    new ToolkitCombinedWeatherType(this);
+                    new ToolkitCombinedWeatherType(this, WeightModifier ?? 0.2f);
                     return true;
                 case CustomWeatherType.Progressing:
                     if (Weathers.Count > 1)
                     {
-                        new ToolkitProgressingWeatherType(this);
+                        new ToolkitProgressingWeatherType(this, WeightModifier ?? 0.3f);
                         return true;
                     }
                     break;

@@ -1,5 +1,4 @@
-﻿using BepInEx;
-using WeatherRegistry;
+﻿using WeatherRegistry;
 using WeatherTweaks.Definitions;
 
 namespace CombinedWeathersToolkit.Toolkit.Core
@@ -21,11 +20,11 @@ namespace CombinedWeathersToolkit.Toolkit.Core
         {
             if (toolkit.Filtering.HasValue)
                 weather.Config.FilteringOption = new BooleanConfigHandler(toolkit.Filtering.Value);
-            if (!toolkit.LevelFilter.IsNullOrWhiteSpace())
+            if (!string.IsNullOrEmpty(toolkit.LevelFilter))
                 weather.Config.LevelFilters = new LevelListConfigHandler(toolkit.LevelFilter);
-            if (!toolkit.LevelWeights.IsNullOrWhiteSpace())
+            if (!string.IsNullOrEmpty(toolkit.LevelWeights))
                 weather.Config.LevelWeights = new LevelWeightsConfigHandler(toolkit.LevelWeights);
-            if (!toolkit.WeatherToWeatherWeights.IsNullOrWhiteSpace())
+            if (!string.IsNullOrEmpty(toolkit.WeatherToWeatherWeights))
                 weather.Config.WeatherToWeatherWeights = new WeatherWeightsConfigHandler(toolkit.WeatherToWeatherWeights);
         }
 

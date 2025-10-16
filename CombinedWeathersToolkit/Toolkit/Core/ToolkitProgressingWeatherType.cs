@@ -8,8 +8,9 @@ namespace CombinedWeathersToolkit.Toolkit.Core
     {
         internal ToolkitWeather ToolkitWeather;
 
-        internal ToolkitProgressingWeatherType(ToolkitWeather toolkit) : base(toolkit.Name, toolkit.Weathers[0],
-            new List<ProgressingWeatherEntry>() { new ProgressingWeatherEntry { DayTime = toolkit.ProgressingTime ?? 0.5f, Chance = 1f, Weather = toolkit.Weathers[1] } })
+        internal ToolkitProgressingWeatherType(ToolkitWeather toolkit, float weightModifier) : base(toolkit.Name, toolkit.Weathers[0],
+            new List<ProgressingWeatherEntry>() { new ProgressingWeatherEntry { DayTime = toolkit.ProgressingTime ?? 0.5f, Chance = 1f, Weather = toolkit.Weathers[1] } },
+            weightModifier)
         {
             ToolkitWeather = toolkit;
             ToolkitHelper.SetColor(toolkit, this);
