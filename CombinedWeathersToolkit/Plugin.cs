@@ -8,6 +8,10 @@ namespace CombinedWeathersToolkit
     [BepInPlugin(GUID, NAME, VERSION)]
     [BepInDependency("WeatherTweaks")]
     [BepInDependency("mrov.WeatherRegistry")]
+    [BepInDependency("voxx.LethalElementsPlugin", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("CodeRebirth", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("MrovWeathers", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("zigzag.legendweathers", BepInDependency.DependencyFlags.SoftDependency)]
     public class Plugin : BaseUnityPlugin
     {
         const string GUID = "zigzag.combinedweatherstoolkit";

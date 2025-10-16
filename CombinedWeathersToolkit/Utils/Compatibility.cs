@@ -1,4 +1,5 @@
 ﻿using BepInEx.Bootstrap;
+using WeatherRegistry;
 
 namespace CombinedWeathersToolkit.Utils
 {
@@ -7,28 +8,22 @@ namespace CombinedWeathersToolkit.Utils
         public static bool WeatherRegisteryInstalled = false;
         public static bool WeatherTweaksInstalled = false;
         public static bool LethalElementsInstalled = false;
-        public static bool BiodiversityInstalled = false;
-        public static bool SurfacedInstalled = false;
-        public static bool PremiumScrapsInstalled = false;
-        public static bool EmergencyDiceInstalled = false;
+        public static bool LegendWeathersInstalled = false;
         public static bool CodeRebirthInstalled = false;
         public static bool MrovWeathersInstalled = false;
         public static bool WesleyWeathersInstalled = false;
-        public static bool ImperiumInstalled = false;
+        public static bool BlueInstalled = false;
+        public static bool BlackFogInstalled = false;
 
         public static void CheckInstalledPlugins()
         {
             WeatherRegisteryInstalled = IsPluginInstalled("mrov.WeatherRegistry");
             WeatherTweaksInstalled = IsPluginInstalled("WeatherTweaks");
             LethalElementsInstalled = IsPluginInstalled("voxx.LethalElementsPlugin", "1.3.0");
-            BiodiversityInstalled = IsPluginInstalled("com.github.biodiversitylc.Biodiversity");
-            SurfacedInstalled = IsPluginInstalled("Surfaced");
-            PremiumScrapsInstalled = IsPluginInstalled("zigzag.premiumscraps");
-            EmergencyDiceInstalled = IsPluginInstalled("Theronguard.EmergencyDice");
+            LegendWeathersInstalled = IsPluginInstalled("zigzag.legendweathers", "2.0.0");
             CodeRebirthInstalled = IsPluginInstalled("CodeRebirth");
             MrovWeathersInstalled = IsPluginInstalled("MrovWeathers");
-            WesleyWeathersInstalled = IsWeatherBundleLoaded("Forsaken");
-            ImperiumInstalled = IsPluginInstalled("giosuel.Imperium");
+            CheckForLoadedWeatherBundles();
         }
 
         private static bool IsPluginInstalled(string pluginGUID, string? pluginVersion = null)
@@ -37,9 +32,27 @@ namespace CombinedWeathersToolkit.Utils
                 (pluginVersion == null || new System.Version(pluginVersion).CompareTo(Chainloader.PluginInfos[pluginGUID].Metadata.Version) <= 0);
         }
 
-        private static bool IsWeatherBundleLoaded(string weatherName)
+        private static void CheckForLoadedWeatherBundles()
         {
-            return Effects.IsModdedWeatherRegistered(weatherName);
+            var weathers = WeatherManager.RegisteredWeathers;
+            for (int i = 0; i < weathers.Count; i++)
+            {
+                //Plugin.logger.LogError(weathers[i].Name);
+                switch (weathers[i].Name)
+                {
+                    case "Forsaken":
+                        WesleyWeathersInstalled = true;
+                        break;
+                    case "Blue":
+                        BlueInstalled = true;
+                        break;
+                    case "Black Fog":
+                        BlackFogInstalled = true;
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
     }
 }

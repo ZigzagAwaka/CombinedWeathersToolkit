@@ -80,17 +80,6 @@ namespace CombinedWeathersToolkit.Utils
             return weatherEffect;
         }
 
-        public static bool IsModdedWeatherRegistered(string weatherName)
-        {
-            var weathers = WeatherManager.RegisteredWeathers;
-            for (int i = 0; i < weathers.Count; i++)
-            {
-                if (weathers[i].Name.Equals(weatherName))
-                    return true;
-            }
-            return false;
-        }
-
         public static void Message(string title, string bottom, bool warning = false)
         {
             HUDManager.Instance.DisplayTip(title, bottom, warning);

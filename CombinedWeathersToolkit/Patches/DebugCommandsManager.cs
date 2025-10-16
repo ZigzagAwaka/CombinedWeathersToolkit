@@ -8,7 +8,7 @@ namespace CombinedWeathersToolkit.Patches
     {
         [HarmonyPostfix]
         [HarmonyPatch("AddChatMessage")]
-        public static void AddChatMessageDebugCommand(HUDManager _, string chatMessage)
+        public static void AddChatMessageDebugCommand(string chatMessage)
         {
             if (!Plugin.config.DebugCommandsEnabled.Value || StartOfRound.Instance == null || StartOfRound.Instance.inShipPhase ||
                 !StartOfRound.Instance.shipHasLanded || StartOfRound.Instance.shipIsLeaving)
