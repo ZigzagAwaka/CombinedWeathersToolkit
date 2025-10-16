@@ -53,7 +53,7 @@ namespace CombinedWeathersToolkit.Toolkit
                     weather.Type = CustomWeatherType.Combined;  // default to combined if not specified
                 }
 
-                if (weather.IsValid() && weather.Register())
+                if (weather.Register())
                 {
                     nbWeathers++;
                     Plugin.DebugLog($"[ConfigRegistery] Registered weather: {weather.Name}");

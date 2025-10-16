@@ -90,6 +90,8 @@ namespace CombinedWeathersToolkit.Toolkit.Core
 
         public bool Register()
         {
+            if (!IsValid())
+                return false;
             switch (Type)
             {
                 case CustomWeatherType.Combined:

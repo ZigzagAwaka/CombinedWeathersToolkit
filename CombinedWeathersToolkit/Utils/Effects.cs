@@ -66,6 +66,28 @@ namespace CombinedWeathersToolkit.Utils
             }
         }
 
+        public static void RemoveLastWeather()
+        {
+            if (WeatherManager.CurrentEffectTypes.Count > 0)
+            {
+                RemoveWeather(WeatherManager.CurrentEffectTypes[^1]);
+            }
+        }
+
+        public static string GetListOfCurrentWeathers()
+        {
+            if (WeatherManager.CurrentEffectTypes.Count == 0)
+                return "None";
+            string weathersStr = "";
+            for (int i = 0; i < WeatherManager.CurrentEffectTypes.Count; i++)
+            {
+                weathersStr += WeatherManager.CurrentEffectTypes[i].ToString();
+                if (i < WeatherManager.CurrentEffectTypes.Count - 1)
+                    weathersStr += ", ";
+            }
+            return weathersStr;
+        }
+
         public static ImprovedWeatherEffect? GetWeatherEffect(string weatherNameResolvable)
         {
             return GetWeatherEffect(new WeatherNameResolvable(weatherNameResolvable).WeatherType);
