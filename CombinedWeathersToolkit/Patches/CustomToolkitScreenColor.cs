@@ -19,21 +19,7 @@ namespace CombinedWeathersToolkit.Patches
                 return;
             }
             Weather currentWeather = WeatherManager.GetCurrentWeather(level);
-            var currentWeatherAsWeatherTweaks = currentWeather as WeatherTweaksWeather;
-            if (currentWeatherAsWeatherTweaks == null || !currentWeatherAsWeatherTweaks.ConfigCategory.StartsWith("WeatherToolkit"))
-            {
-                return;
-            }
-            ToolkitWeather? toolkit = null;
-            var currentWeatherAsToolkitCombined = currentWeatherAsWeatherTweaks as ToolkitCombinedWeatherType;
-            if (currentWeatherAsToolkitCombined != null)
-                toolkit = currentWeatherAsToolkitCombined.ToolkitWeather;
-            else
-            {
-                var currentWeatherAsToolkitProgressing = currentWeatherAsWeatherTweaks as ToolkitProgressingWeatherType;
-                if (currentWeatherAsToolkitProgressing != null)
-                    toolkit = currentWeatherAsToolkitProgressing.ToolkitWeather;
-            }
+            var toolkit = ToolkitHelper.GetToolkitFromWeatherTweaksWeather(currentWeather as WeatherTweaksWeather);
             if (toolkit == null || !toolkit.NameColor.HasValue)
             {
                 return;

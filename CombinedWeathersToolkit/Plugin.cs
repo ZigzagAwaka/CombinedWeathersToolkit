@@ -21,7 +21,7 @@ namespace CombinedWeathersToolkit
 
         internal static void DebugLog(object message)
         {
-            if (config.DebugLogs.Value)
+            if (config.DebugLogsEnabled.Value)
                 logger.LogWarning(message);
         }
 

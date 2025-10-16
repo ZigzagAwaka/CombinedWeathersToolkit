@@ -18,14 +18,10 @@ namespace CombinedWeathersToolkit.Toolkit.Core
 
         internal static void SetConfig(ToolkitWeather toolkit, WeatherTweaksWeather weather)
         {
-            if (toolkit.Filtering.HasValue)
-                weather.Config.FilteringOption = new BooleanConfigHandler(toolkit.Filtering.Value);
-            if (!string.IsNullOrEmpty(toolkit.LevelFilter))
-                weather.Config.LevelFilters = new LevelListConfigHandler(toolkit.LevelFilter);
-            if (!string.IsNullOrEmpty(toolkit.LevelWeights))
-                weather.Config.LevelWeights = new LevelWeightsConfigHandler(toolkit.LevelWeights);
-            if (!string.IsNullOrEmpty(toolkit.WeatherToWeatherWeights))
-                weather.Config.WeatherToWeatherWeights = new WeatherWeightsConfigHandler(toolkit.WeatherToWeatherWeights);
+            weather.Config.FilteringOption = new BooleanConfigHandler(toolkit.Filtering ?? false);
+            weather.Config.LevelFilters = new LevelListConfigHandler(!string.IsNullOrEmpty(toolkit.LevelFilter) ? toolkit.LevelFilter : "Company");
+            weather.Config.LevelWeights = new LevelWeightsConfigHandler(!string.IsNullOrEmpty(toolkit.LevelWeights) ? toolkit.LevelWeights : "");
+            weather.Config.WeatherToWeatherWeights = new WeatherWeightsConfigHandler(!string.IsNullOrEmpty(toolkit.WeatherToWeatherWeights) ? toolkit.WeatherToWeatherWeights : "");
         }
 
         internal static (float valueMultiplier, float amountMultiplier) GetMultipliers(ToolkitWeather toolkit)
@@ -36,6 +32,23 @@ namespace CombinedWeathersToolkit.Toolkit.Core
             if (toolkit.ScrapAmountMultiplier.HasValue)
                 amount = toolkit.ScrapAmountMultiplier.Value;
             return (value, amount);
+        }
+
+        public static ToolkitWeather? GetToolkitFromWeatherTweaksWeather(WeatherTweaksWeather? weather)
+        {
+            if (weather == null || !weather.ConfigCategory.StartsWith("WeatherToolkit"))
+                return null;
+            ToolkitWeather? toolkit = null;
+            var currentWeatherAsToolkitCombined = weather as ToolkitCombinedWeatherType;
+            if (currentWeatherAsToolkitCombined != null)
+                toolkit = currentWeatherAsToolkitCombined.ToolkitWeather;
+            else
+            {
+                var currentWeatherAsToolkitProgressing = weather as ToolkitProgressingWeatherType;
+                if (currentWeatherAsToolkitProgressing != null)
+                    toolkit = currentWeatherAsToolkitProgressing.ToolkitWeather;
+            }
+            return toolkit;
         }
     }
 }

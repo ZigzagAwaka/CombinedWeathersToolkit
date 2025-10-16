@@ -93,7 +93,7 @@ namespace CombinedWeathersToolkit.Toolkit.Core
                 case CustomWeatherType.Progressing:
                     if (Weathers.Count > 1)
                     {
-                        new ToolkitProgressingWeatherType(this, WeightModifier ?? 0.3f);
+                        new ToolkitProgressingWeatherType(this, (WeightModifier ?? 0.2f) + 0.1f);
                         return true;
                     }
                     break;
