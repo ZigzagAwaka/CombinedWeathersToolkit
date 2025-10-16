@@ -16,6 +16,26 @@ namespace CombinedWeathersToolkit.Utils
                 WeatherController.SetWeatherEffects(weather);
         }
 
+        public static void AddCombinedWeather(string weatherNameResolvable)
+        {
+            var weatherType = weatherNameResolvable.ToLower() switch
+            {
+                "rainy" => LevelWeatherType.Rainy,
+                "stormy" => LevelWeatherType.Stormy,
+                "foggy" => LevelWeatherType.Foggy,
+                "flooded" => LevelWeatherType.Flooded,
+                "dustclouds" => LevelWeatherType.DustClouds,
+                "eclipsed" => LevelWeatherType.Eclipsed,
+                _ => new WeatherNameResolvable(weatherNameResolvable).WeatherType
+            };
+            AddCombinedWeather(weatherType);
+        }
+
+        public static void AddCombinedWeather(LevelWeatherType weather)
+        {
+            WeatherController.AddWeatherEffect(weather);
+        }
+
         public static bool IsWeatherEffectPresent(string weatherNameResolvable)
         {
             return IsWeatherEffectPresent(new WeatherNameResolvable(weatherNameResolvable).WeatherType);
