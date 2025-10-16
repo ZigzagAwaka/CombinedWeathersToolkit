@@ -33,6 +33,8 @@ namespace CombinedWeathersToolkit
             config = new Config(Config);
             config.SetupCustomConfigs();
 
+            if (config.RegisterPredefinedWeathers.Value)
+                PredefinedRegistery.LoadAllPredefinedWeathers();
             if (config.AllowConfigRegistery.Value)
                 ConfigRegistery.LoadAllConfigValues();
             if (config.AllowJsonRegistery.Value)

@@ -15,7 +15,6 @@ namespace CombinedWeathersToolkit.Toolkit
 
             int nbWeathers = 0;
             Plugin.DebugLog($"[ConfigRegistery] Found values in config file, now loading Weather Config creator");
-            //Eclipsed + Foggy : Eclipsed : Foggy,Solar Storm: color(#ff0000) : solarflare : stormy
 
             foreach (var weatherString in Plugin.config.WeatherConfigCreatorList)
             {
