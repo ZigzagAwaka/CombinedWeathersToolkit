@@ -3,6 +3,7 @@ using Newtonsoft.Json.Linq;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using WeatherTweaks.Definitions;
 
 namespace CombinedWeathersToolkit.Toolkit
 {
@@ -94,6 +95,10 @@ namespace CombinedWeathersToolkit.Toolkit
                 else
                 {
                     Plugin.logger.LogError($"[JsonRegistery] The '{weatherKey}' property is not an Object, skipping...");
+                }
+                if (weather.Type == null || weather.Type == CustomWeatherType.Normal)
+                {
+                    weather.Type = CustomWeatherType.Combined;  // default to combined if not specified
                 }
 
                 if (weather.IsValid() && weather.Register())

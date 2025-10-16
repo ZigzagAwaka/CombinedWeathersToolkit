@@ -59,22 +59,27 @@ namespace CombinedWeathersToolkit.Toolkit.Core
             };
         }
 
+        public void AddWeather(string weatherName)
+        {
+            WeatherResolvable weatherResolvable = string.Concat(weatherName.Where(c => !char.IsWhiteSpace(c))).ToLower() switch
+            {
+                "none" => new WeatherTypeResolvable(LevelWeatherType.None),
+                "dustclouds" => new WeatherTypeResolvable(LevelWeatherType.DustClouds),
+                "rainy" => new WeatherTypeResolvable(LevelWeatherType.Rainy),
+                "stormy" => new WeatherTypeResolvable(LevelWeatherType.Stormy),
+                "foggy" => new WeatherTypeResolvable(LevelWeatherType.Foggy),
+                "flooded" => new WeatherTypeResolvable(LevelWeatherType.Flooded),
+                "eclipsed" => new WeatherTypeResolvable(LevelWeatherType.Eclipsed),
+                _ => new WeatherNameResolvable(weatherName)
+            };
+            Weathers.Add(weatherResolvable);
+        }
+
         public void AddWeathers(string[] weatherNames)
         {
             foreach (string weatherName in weatherNames)
             {
-                WeatherResolvable weatherResolvable = string.Concat(weatherName.Where(c => !char.IsWhiteSpace(c))).ToLower() switch
-                {
-                    "none" => new WeatherTypeResolvable(LevelWeatherType.None),
-                    "dustclouds" => new WeatherTypeResolvable(LevelWeatherType.DustClouds),
-                    "rainy" => new WeatherTypeResolvable(LevelWeatherType.Rainy),
-                    "stormy" => new WeatherTypeResolvable(LevelWeatherType.Stormy),
-                    "foggy" => new WeatherTypeResolvable(LevelWeatherType.Foggy),
-                    "flooded" => new WeatherTypeResolvable(LevelWeatherType.Flooded),
-                    "eclipsed" => new WeatherTypeResolvable(LevelWeatherType.Eclipsed),
-                    _ => new WeatherNameResolvable(weatherName)
-                };
-                Weathers.Add(weatherResolvable);
+                AddWeather(weatherName);
             }
         }
 
