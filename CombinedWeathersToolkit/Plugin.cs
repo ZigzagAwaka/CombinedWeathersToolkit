@@ -1,6 +1,7 @@
 ﻿using BepInEx;
 using BepInEx.Logging;
 using CombinedWeathersToolkit.Toolkit;
+using HarmonyLib;
 
 namespace CombinedWeathersToolkit
 {
@@ -15,12 +16,12 @@ namespace CombinedWeathersToolkit
 
         public static Plugin instance;
         public static ManualLogSource logger;
-        internal static string PredefinedFileName = "zigzag.predefinedweathers.cwt.json";
+        private readonly Harmony harmony = new Harmony(GUID);
         internal static Config config { get; private set; } = null!;
 
-        internal static void VerboseLog(object message)
+        internal static void DebugLog(object message)
         {
-            if (config.VerboseLogs.Value)
+            if (config.DebugLogs.Value)
                 logger.LogWarning(message);
         }
 
@@ -37,6 +38,7 @@ namespace CombinedWeathersToolkit
             if (config.AllowJsonRegistery.Value)
                 JsonRegistery.LoadAllJsonFiles();
 
+            harmony.PatchAll();
             logger.LogInfo($"{NAME} is loaded !");
         }
     }

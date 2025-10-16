@@ -8,7 +8,7 @@ namespace CombinedWeathersToolkit
         public readonly ConfigEntry<bool> AllowConfigRegistery;
         public readonly ConfigEntry<bool> AllowJsonRegistery;
         public readonly ConfigEntry<bool> RegisterPredefinedCombinedWeathers;
-        public readonly ConfigEntry<bool> VerboseLogs;
+        public readonly ConfigEntry<bool> DebugLogs;
 
         public Config(ConfigFile cfg)
         {
@@ -17,7 +17,7 @@ namespace CombinedWeathersToolkit
             AllowConfigRegistery = cfg.Bind("General", "Allow config registery", true, "Allow the mod to register any combined weather effects that are created in the config.");
             AllowJsonRegistery = cfg.Bind("General", "Allow json registery", true, "Allow the mod to register any combined weather effects that are created with .json files.");
             RegisterPredefinedCombinedWeathers = cfg.Bind("Predefined weathers", "Register predefined combined weathers", true, "If true, some predefined combined weather effects will be registered by this mod without the need of manually creating them. [Requires 'Allow json registery' activated]");
-            VerboseLogs = cfg.Bind("Logs", "Verbose logs", false, "Enable more explicit logs in the console (for debug reasons).");
+            DebugLogs = cfg.Bind("Debug", "Debug logs", false, "Enable more explicit logs in the console (for debug reasons).");
 
             cfg.Save();
             cfg.SaveOnConfigSet = true;
