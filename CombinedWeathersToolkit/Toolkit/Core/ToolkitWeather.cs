@@ -61,6 +61,8 @@ namespace CombinedWeathersToolkit.Toolkit.Core
 
         public void AddWeather(string weatherName)
         {
+            if (string.IsNullOrEmpty(weatherName))
+                return;
             WeatherResolvable weatherResolvable = string.Concat(weatherName.Where(c => !char.IsWhiteSpace(c))).ToLower() switch
             {
                 "none" => new WeatherTypeResolvable(LevelWeatherType.None),

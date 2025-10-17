@@ -26,10 +26,6 @@ namespace CombinedWeathersToolkit.Patches
                         Effects.ChangeWeather(LevelWeatherType.None);
                         Effects.Message("Debug CWT", "Removed all weathers from current level");
                         break;
-                    case "cancel":
-                        Effects.RemoveLastWeather();
-                        Effects.Message("Debug CWT", "The last weather was removed");
-                        break;
                     case "list":
                         Effects.Message("Debug CWT", "Current weathers: " + Effects.GetListOfCurrentWeathers());
                         break;

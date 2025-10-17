@@ -16,7 +16,7 @@ namespace CombinedWeathersToolkit.Toolkit
 
             foreach (var filePath in jsonFiles)
             {
-                if (Path.GetDirectoryName(filePath).EndsWith("Examples"))
+                if (Path.GetDirectoryName(filePath).EndsWith("JsonExamples"))
                     continue;
                 var fileName = Path.GetFileName(filePath);
                 Plugin.DebugLog($"[JsonRegistery] Found json file, now loading: {fileName}");
