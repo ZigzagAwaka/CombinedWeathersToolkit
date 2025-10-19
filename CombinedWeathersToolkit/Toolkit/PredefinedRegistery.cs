@@ -103,7 +103,7 @@ namespace CombinedWeathersToolkit.Toolkit
                 }
             }
             RegisterWeather("The End of the World", UnityEngine.Color.magenta,
-                "rainy", "stormy", "flooded", "eclipsed",
+                "rainy", "stormy", "flooded",
                 Compatibility.LethalElementsInstalled ? "snowfall" : "",
                 Compatibility.LethalElementsInstalled ? "heatwave" : "",
                 Compatibility.LethalElementsInstalled ? "solarflare" : "",
@@ -115,7 +115,7 @@ namespace CombinedWeathersToolkit.Toolkit
                 Compatibility.WesleyWeathersInstalled ? "hurricane" : "",
                 Compatibility.BlackFogInstalled ? "blackfog" : "",
                 Compatibility.LegendWeathersInstalled ? "majoramoon" : "",
-                Compatibility.LegendWeathersInstalled ? "bloodmoon" : ""
+                Compatibility.LegendWeathersInstalled ? "bloodmoon" : "eclipsed"
             );
 
             Plugin.logger.LogInfo("[PredefinedRegistery] Loaded all predefined weathers");

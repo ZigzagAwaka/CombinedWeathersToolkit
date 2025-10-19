@@ -27,7 +27,9 @@ namespace CombinedWeathersToolkit.Toolkit.Core
             Type = typeString.ToLower() switch
             {
                 "combined" => CustomWeatherType.Combined,
+                "combo" => CustomWeatherType.Combined,
                 "progressing" => CustomWeatherType.Progressing,
+                "progressive" => CustomWeatherType.Progressing,
                 _ => CustomWeatherType.Normal
             };
         }

@@ -108,7 +108,7 @@ namespace CombinedWeathersToolkit.Toolkit
                 }
                 else
                 {
-                    Plugin.logger.LogError($"[JsonRegistery] The '{weatherKey}' property is not valid and could not register a weather");
+                    Plugin.DebugLog($"[JsonRegistery] The '{weatherKey}' property is not valid and could not register a weather ; this can happen if the property has no 'name' field or if one of the added weathers is a modded weather and the mod it's from it not installed");
                 }
             }
             return nbWeathers;

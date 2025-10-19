@@ -7,6 +7,7 @@ Compatible with **v73** of Lethal Company.
 ##
 
 how it works goes here
+<strong style="color:red;">test </strong>
 
 ##
 
