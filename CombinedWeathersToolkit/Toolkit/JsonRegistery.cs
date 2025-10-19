@@ -1,5 +1,7 @@
 ﻿using CombinedWeathersToolkit.Toolkit.Core;
 using Newtonsoft.Json.Linq;
+using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -115,45 +117,63 @@ namespace CombinedWeathersToolkit.Toolkit
 
         private static T ExtractJsonProperty<T>(JProperty property)
         {
+            var token = property.Value;
+
             if (typeof(T) == typeof(string))
             {
-                return (T)(object)property.Value.ToString();
+                return (T)(object)token.ToString();
             }
             else if (typeof(T) == typeof(int))
             {
-                if (int.TryParse(property.Value.ToString(), out int intValue))
+                if (token.Type == JTokenType.Integer || token.Type == JTokenType.Float)
+                    return (T)(object)token.Value<int>();
+                if (int.TryParse(token.ToString(), out var intValue))
                     return (T)(object)intValue;
             }
             else if (typeof(T) == typeof(float))
             {
-                if (float.TryParse(property.Value.ToString(), out float floatValue))
+                if (token.Type == JTokenType.Float || token.Type == JTokenType.Integer)
+                    return (T)(object)token.Value<float>();
+                var stringValue = token.ToString();
+                if (float.TryParse(stringValue, NumberStyles.Float | NumberStyles.AllowThousands, CultureInfo.InvariantCulture, out var floatValue) ||
+                    float.TryParse(stringValue, NumberStyles.Float | NumberStyles.AllowThousands, CultureInfo.CurrentCulture, out floatValue))
                     return (T)(object)floatValue;
             }
             else if (typeof(T) == typeof(bool))
             {
-                if (bool.TryParse(property.Value.ToString(), out bool boolValue))
+                if (token.Type == JTokenType.Boolean)
+                    return (T)(object)token.Value<bool>();
+                if (bool.TryParse(token.ToString(), out var boolValue))
                     return (T)(object)boolValue;
             }
             else if (typeof(T) == typeof(float[]))
             {
-                if (property.Value.Type == JTokenType.Array)
+                var list = new List<float>();
+
+                if (token.Type == JTokenType.Array)
                 {
-                    var jsonArray = property.Value as JArray;
-                    return (T)(object)jsonArray.Select(x =>
+                    foreach (var value in (JArray)token)
                     {
-                        if (float.TryParse(x.ToString(), out float floatValue))
-                            return (T)(object)floatValue;
-                        return (T)(object)x;
-                    }).ToArray();
+                        if (value.Type == JTokenType.Float || value.Type == JTokenType.Integer)
+                        {
+                            list.Add(value.Value<float>());
+                            continue;
+                        }
+                        var stringValue = value.ToString();
+                        if (float.TryParse(stringValue, NumberStyles.Float | NumberStyles.AllowThousands, CultureInfo.InvariantCulture, out var floatValue) ||
+                            float.TryParse(stringValue, NumberStyles.Float | NumberStyles.AllowThousands, CultureInfo.CurrentCulture, out floatValue))
+                        {
+                            list.Add(floatValue);
+                        }
+                    }
+                    return (T)(object)list.ToArray();
                 }
             }
             else if (typeof(T) == typeof(string[]))
             {
-                if (property.Value.Type == JTokenType.Array)
-                {
-                    var jsonArray = property.Value as JArray;
-                    return (T)(object)jsonArray.Select(x => x.ToString()).ToArray();
-                }
+                if (token.Type == JTokenType.Array)
+                    return (T)(object)((JArray)token).Select(x => x.ToString()).ToArray();
+                return (T)(object)new string[] { token.ToString() };
             }
             return default;
         }
