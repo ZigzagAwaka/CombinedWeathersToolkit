@@ -5,12 +5,12 @@ using WeatherRegistry;
 
 namespace CombinedWeathersToolkit.Patches
 {
-    [HarmonyPatch(typeof(WeatherRegistry.Startup))]
+    [HarmonyPatch(typeof(WeatherRegistry.Plugin))]
     internal class InitToolkitWeatherRegistery
     {
         [HarmonyPrefix]
-        [HarmonyPatch("Init")]
-        public static void InitCWT()
+        [HarmonyPatch("MainMenuInit")]
+        public static void InitToolkitWeathers()
         {
             Plugin.installedWeathers.AddRange(
                 WeatherManager.RegisteredWeathers.Where(w => w.Type == WeatherType.Modded && w.Origin != WeatherOrigin.WeatherTweaks)

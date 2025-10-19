@@ -1,4 +1,7 @@
 ﻿using CombinedWeathersToolkit.Toolkit.Core;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 using WeatherTweaks.Definitions;
 
 namespace CombinedWeathersToolkit.Toolkit
@@ -9,82 +12,80 @@ namespace CombinedWeathersToolkit.Toolkit
         {
             Plugin.DebugLog("[PredefinedRegistery] Predefined weathers are enabled, now loading everything");
 
+            #region MAJORA MOON
             RegisterWeather("Rainy + Majora Moon", "rainy", "majoramoon");
-            RegisterWeather("Stormy + Majora Moon", "stormy", "majoramoon");
-            RegisterWeather("Majora Eclipsed", UnityEngine.Color.magenta, "eclipsed", "majoramoon");
-            RegisterWeather("Majora Chaos", Color("#750000"), "rainy", "stormy", "eclipsed", "majoramoon");
-            RegisterWeather("Flooded + Blood Moon", "flooded", "bloodmoon");
-            RegisterWeather("Majora Moon + Blood Moon", "majoramoon", "bloodmoon");
-
+            RegisterWeather("Majora Eclipsed", Color.magenta, "eclipsed", "majoramoon");
+            RegisterWeather("Majora Chaos", Hex("#750000"), "rainy", "stormy", "eclipsed", "majoramoon");
             RegisterWeather("Snowfall + Majora Moon", "snowfall", "majoramoon");
             RegisterWeather("Solar Flare + Majora Moon", "solarflare", "majoramoon");
-            RegisterWeather("Snowfall + Blood Moon", "snowfall", "bloodmoon");
-            RegisterWeather("Toxic Smog + Blood Moon", "toxicsmog", "bloodmoon");
-
             RegisterWeather("Tornado + Majora Moon", "tornado", "majoramoon");
             RegisterWeather("Meteor Shower + Majora Moon", "meteorshower", "majoramoon");
-            RegisterWeather("Meteor Shower + Blood Moon", "meteorshower", "bloodmoon");
-
             RegisterWeather("Hallowed + Majora Moon", "hallowed", "majoramoon");
-            RegisterWeather("Majora Tempest", Color("#736f00"), "stormy", "hurricane", "majoramoon");
+            RegisterWeather("Majora Tempest", Hex("#736f00"), "stormy", "hurricane", "majoramoon");
+            RegisterWeather("Dark Majora Moon", Hex("#290033"), "blackfog", "majoramoon");
+            #endregion
+
+            #region BLOOD MOON
+            RegisterWeather("Flooded + Blood Moon", "flooded", "bloodmoon");
+            RegisterWeather("Snowfall + Blood Moon", "snowfall", "bloodmoon");
+            RegisterWeather("Toxic Smog + Blood Moon", "toxicsmog", "bloodmoon");
+            RegisterWeather("Meteor Shower + Blood Moon", "meteorshower", "bloodmoon");
             RegisterWeather("Forsaken + Blood Moon", "forsaken", "bloodmoon");
+            RegisterWeather("Dark Blood Moon", Hex("#24000c"), "blackfog", "bloodmoon");
+            RegisterWeather("Majora Moon + Blood Moon", "majoramoon", "bloodmoon");
+            #endregion
 
-            RegisterWeather("Dark Majora Moon", Color("#290033"), "blackfog", "majoramoon");
-            RegisterWeather("Dark Blood Moon", Color("#24000c"), "blackfog", "bloodmoon");
-
-            RegisterWeather("Climate Anomaly", UnityEngine.Color.yellow, "snowfall", "heatwave", "solarflare");
+            #region LETHAL ELEMENTS
+            RegisterWeather("Climate Anomaly", Color.yellow, "snowfall", "heatwave", "solarflare");
             RegisterWeather("Heatwave + Blizzard", "heatwave", "blizzard");
-            RegisterWeather("Toxic Smog + Blizzard", "toxicsmog", "blizzard");
-
-            RegisterWeather("Blizzard + Forsaken", Color("#574885"), "blizzard", "forsaken");
-            RegisterWeather("Toxic Smog + Hallowed", Color("#1d3d1d"), "toxicsmog", "hallowed");
-
+            RegisterWeather("Toxic Blizzard", Hex("#32a89d"), "toxicsmog", "blizzard");
+            RegisterWeather("Blizzard + Forsaken", Hex("#574885"), "blizzard", "forsaken");
+            RegisterWeather("Toxic Smog + Hallowed", Hex("#1d3d1d"), "toxicsmog", "hallowed");
+            RegisterWeather("Toxic Winds", Hex("#008042"), "toxicsmog", "tornado");
             RegisterWeather("Black Fog + Heatwave", "blackfog", "heatwave");
             RegisterWeather("Black Fog + Snowfall", "blackfog", "snowfall");
             RegisterWeather("Black Fog + Blizzard", "blackfog", "blizzard");
+            #endregion
 
-            RegisterWeather("Toxic Storm", Color("#008042"), "toxicsmog", "tornado");
+            #region CODE REBIRTH
+            RegisterWeather("Foggy + Meteor Shower", Color.red, "foggy", "meteorshower");
+            RegisterWeather("Meteor Deluge", Hex("#01060d"), "stormy", "flooded", "tornado", "meteorshower");
+            RegisterWeather("Gravity Anomaly", Hex("#ff7a7a"), "meteorshower", "eclipsed", "solarflare");
+            RegisterWeather("Superstorm", Color.magenta, "stormy", "flooded", "tornado", "hurricane");
+            #endregion
 
-            RegisterWeather("Foggy + Meteor Shower", UnityEngine.Color.red, "foggy", "meteorshower");
-            RegisterWeather("Meteor Deluge", Color("#01060d"), "stormy", "flooded", "tornado", "meteorshower");
-            RegisterWeather("Gravity Anomaly", Color("#ff7a7a"), "meteorshower", "eclipsed", "solarflare");
-            RegisterWeather("Superstorm", UnityEngine.Color.magenta, "stormy", "flooded", "tornado", "hurricane");
-
+            #region WESLEY WEATHERS
             RegisterWeather("Flooded + Hallowed", "flooded", "hallowed");
-            RegisterWeather("Hallowed Eclipse", UnityEngine.Color.red, "eclipsed", "hallowed");
-            RegisterWeather("Forsaken Storm", Color("#94294b"), "stormy", "forsaken");
+            RegisterWeather("Hallowed Eclipse", Color.red, "eclipsed", "hallowed");
+            RegisterWeather("Forsaken Storm", Hex("#94294b"), "stormy", "forsaken");
+            #endregion
 
-            RegisterWeather("Haunted", Color("#4f2d6e"), "blackout", "hallowed", "blackfog");
+            #region MROV WEATHERS
+            RegisterWeather("Haunted", Hex("#4f2d6e"), "blackout", "hallowed", "blackfog");
+            RegisterWeather("Darkness", Hex("#030029"), "blackfog", "blackout");
+            RegisterWeather("Total Darkness", Hex("#030029"), "blackfog", "blackout", "foggy");
+            #endregion
 
-            RegisterWeather("Darkness", UnityEngine.Color.black, "blackfog", "blackout");
-            RegisterWeather("Total Darkness", UnityEngine.Color.black, "blackfog", "blackout", "foggy");
+            #region BLUE
+            RegisterWeather("Bluefall", Hex("#36a3d6"), "blue", "snowfall");
+            RegisterWeather("Blue Fog", Hex("#060a4a"), "blue", "blackfog");
+            RegisterWeather("Blue Moon", Hex("#004175"), "blue", "bloodmoon");
+            RegisterWeather("Majoblue", Hex("#170075"), "blue", "majoramoon");
+            #endregion
 
+            #region CUSTOM
+            var weatherBlacklist = new string[] { "blizzard", "cloudy", "blackout", "blue", "evilblue" };
+            var allWeathers = new List<string>() { "rainy", "stormy", "flooded", "eclipsed" };
 
-            RegisterWeather("Bluefall", Color("#36a3d6"), "blue", "snowfall");
+            foreach (var weather in Plugin.installedWeathers)  // load all installed weathers into the list
+            {
+                if (weatherBlacklist.Any(x => x == weather))
+                    continue;
+                allWeathers.Add(weather);
+            }
 
-
-            RegisterWeather("Blue Fog", Color("#060a4a"), "blue", "blackfog");
-
-
-            RegisterWeather("Blue Moon", Color("#004175"), "blue", "bloodmoon");
-            RegisterWeather("Majoblue", Color("#170075"), "blue", "majoramoon");
-
-
-            /*RegisterWeather("The End of the World", UnityEngine.Color.magenta,
-                "rainy", "stormy", "flooded",
-                Compatibility.LethalElementsInstalled ? "snowfall" : "",
-                Compatibility.LethalElementsInstalled ? "heatwave" : "",
-                Compatibility.LethalElementsInstalled ? "solarflare" : "",
-                Compatibility.LethalElementsInstalled ? "toxicsmog" : "",
-                Compatibility.CodeRebirthInstalled ? "tornado" : "",
-                Compatibility.CodeRebirthInstalled ? "meteorshower" : "",
-                Compatibility.WesleyWeathersInstalled ? "hallowed" : "",
-                Compatibility.WesleyWeathersInstalled ? "forsaken" : "",
-                Compatibility.WesleyWeathersInstalled ? "hurricane" : "",
-                Compatibility.BlackFogInstalled ? "blackfog" : "",
-                Compatibility.LegendWeathersInstalled ? "majoramoon" : "",
-                Compatibility.LegendWeathersInstalled ? "bloodmoon" : "eclipsed"
-            );*/
+            RegisterWeather("The End of the World", Color.magenta, allWeathers.ToArray());
+            #endregion
 
             Plugin.logger.LogInfo("[PredefinedRegistery] All predefined weathers are loaded");
         }
@@ -95,7 +96,7 @@ namespace CombinedWeathersToolkit.Toolkit
             RegisterWeather(toolkit, weathers);
         }
 
-        private static void RegisterWeather(string name, UnityEngine.Color color, params string[] weathers)
+        private static void RegisterWeather(string name, Color color, params string[] weathers)
         {
             var toolkit = new ToolkitWeather() { Name = name, NameColor = color };
             RegisterWeather(toolkit, weathers);
@@ -110,11 +111,11 @@ namespace CombinedWeathersToolkit.Toolkit
                 Plugin.DebugLog($"[PredefinedRegistery] Registered weather: {toolkit.Name}");
         }
 
-        private static UnityEngine.Color Color(string hexColor)
+        private static Color Hex(string hexColor)
         {
-            if (UnityEngine.ColorUtility.TryParseHtmlString(hexColor, out var customColor))
+            if (ColorUtility.TryParseHtmlString(hexColor, out var customColor))
                 return customColor;
-            return UnityEngine.Color.white;
+            return Color.cyan;
         }
     }
 }
