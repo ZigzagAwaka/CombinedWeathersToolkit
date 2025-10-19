@@ -1,6 +1,5 @@
 ﻿using CombinedWeathersToolkit.Toolkit.Core;
 using System.Linq;
-using WeatherTweaks.Definitions;
 
 namespace CombinedWeathersToolkit.Toolkit
 {
@@ -47,10 +46,6 @@ namespace CombinedWeathersToolkit.Toolkit
                         weather.AddWeather(value);
                     }
                     valuePos++;
-                }
-                if (weather.Type == null || weather.Type == CustomWeatherType.Normal)
-                {
-                    weather.Type = CustomWeatherType.Combined;  // default to combined if not specified
                 }
 
                 if (weather.Register())

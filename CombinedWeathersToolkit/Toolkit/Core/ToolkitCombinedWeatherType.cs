@@ -7,7 +7,7 @@ namespace CombinedWeathersToolkit.Toolkit.Core
     {
         internal ToolkitWeather ToolkitWeather;
 
-        internal ToolkitCombinedWeatherType(ToolkitWeather toolkit, float weightModifier) : base(toolkit.Name, toolkit.Weathers, weightModifier)
+        internal ToolkitCombinedWeatherType(ToolkitWeather toolkit) : base(toolkit.Name, toolkit.Weathers, toolkit.WeightModifier ?? 0.2f)
         {
             ToolkitWeather = toolkit;
             ToolkitHelper.SetColor(toolkit, this);

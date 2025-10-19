@@ -1,4 +1,5 @@
-﻿using WeatherRegistry;
+﻿using System.Collections.Generic;
+using WeatherRegistry;
 using WeatherTweaks.Definitions;
 
 namespace CombinedWeathersToolkit.Toolkit.Core
@@ -32,6 +33,16 @@ namespace CombinedWeathersToolkit.Toolkit.Core
             if (toolkit.ScrapAmountMultiplier.HasValue)
                 amount = toolkit.ScrapAmountMultiplier.Value;
             return (value, amount);
+        }
+
+        internal static List<ProgressingWeatherEntry> GetProgressingWeatherEntries(ToolkitWeather toolkit)
+        {
+            var result = new List<ProgressingWeatherEntry>();
+            for (int i = 1; i < toolkit.Weathers.Count; i++)
+            {
+                result.Add(new ProgressingWeatherEntry() { DayTime = toolkit.ProgressingTimes[i - 1], Chance = toolkit.ProgressingChances[i - 1], Weather = toolkit.Weathers[i] });
+            }
+            return result;
         }
 
         public static ToolkitWeather? GetToolkitFromWeatherTweaksWeather(WeatherTweaksWeather? weather)

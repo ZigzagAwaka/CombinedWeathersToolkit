@@ -3,7 +3,6 @@ using Newtonsoft.Json.Linq;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using WeatherTweaks.Definitions;
 
 namespace CombinedWeathersToolkit.Toolkit
 {
@@ -81,8 +80,11 @@ namespace CombinedWeathersToolkit.Toolkit
                             case "weather_to_weather_weights":
                                 weather.WeatherToWeatherWeights = ExtractJsonProperty<string>(property);
                                 break;
-                            case "progressing_time":
-                                weather.ProgressingTime = ExtractJsonProperty<float>(property);
+                            case "progressing_times":
+                                weather.AddProgressingValues(ExtractJsonProperty<float[]>(property), areTimesValues: true);
+                                break;
+                            case "progressing_chances":
+                                weather.AddProgressingValues(ExtractJsonProperty<float[]>(property), areTimesValues: false);
                                 break;
                             case "weathers":
                                 weather.AddWeathers(ExtractJsonProperty<string[]>(property));
@@ -95,10 +97,6 @@ namespace CombinedWeathersToolkit.Toolkit
                 else
                 {
                     Plugin.logger.LogError($"[JsonRegistery] The '{weatherKey}' property is not an Object, skipping...");
-                }
-                if (weather.Type == null || weather.Type == CustomWeatherType.Normal)
-                {
-                    weather.Type = CustomWeatherType.Combined;  // default to combined if not specified
                 }
 
                 if (weather.Register())
@@ -135,6 +133,19 @@ namespace CombinedWeathersToolkit.Toolkit
             {
                 if (bool.TryParse(property.Value.ToString(), out bool boolValue))
                     return (T)(object)boolValue;
+            }
+            else if (typeof(T) == typeof(float[]))
+            {
+                if (property.Value.Type == JTokenType.Array)
+                {
+                    var jsonArray = property.Value as JArray;
+                    return (T)(object)jsonArray.Select(x =>
+                    {
+                        if (float.TryParse(x.ToString(), out float floatValue))
+                            return (T)(object)floatValue;
+                        return (T)(object)x;
+                    }).ToArray();
+                }
             }
             else if (typeof(T) == typeof(string[]))
             {

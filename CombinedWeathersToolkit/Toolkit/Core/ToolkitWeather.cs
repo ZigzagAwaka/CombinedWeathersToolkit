@@ -18,8 +18,9 @@ namespace CombinedWeathersToolkit.Toolkit.Core
         public string? LevelFilter;
         public string? LevelWeights;
         public string? WeatherToWeatherWeights;
-        public float? ProgressingTime;
-        internal float? WeightModifier;
+        public float? WeightModifier;
+        public List<float> ProgressingTimes = new List<float>();
+        public List<float> ProgressingChances = new List<float>();
         public List<WeatherResolvable> Weathers = new List<WeatherResolvable>();
 
         public void SetTypeFromString(string typeString)
@@ -61,6 +62,19 @@ namespace CombinedWeathersToolkit.Toolkit.Core
             };
         }
 
+        public void AddProgressingValues(float[] values, bool areTimesValues)
+        {
+            foreach (var value in values)
+            {
+                if (value < 0f)
+                    continue;
+                if (areTimesValues)
+                    ProgressingTimes.Add(value);
+                else
+                    ProgressingChances.Add(value);
+            }
+        }
+
         public void AddWeather(string weatherName)
         {
             if (string.IsNullOrEmpty(weatherName))
@@ -89,7 +103,43 @@ namespace CombinedWeathersToolkit.Toolkit.Core
 
         public bool IsValid()
         {
-            return Type != null && Type != CustomWeatherType.Normal && !string.IsNullOrEmpty(Name) && Weathers.Count > 0;
+            if (Type == null || Type == CustomWeatherType.Normal)  // set Type to Combined if not specified
+                Type = CustomWeatherType.Combined;
+
+            if (string.IsNullOrEmpty(Name))  // make sure Name is set
+                return false;
+
+            if (Type == CustomWeatherType.Combined)  // combined weathers needs to have at least 1 weather
+                return Weathers.Count >= 1;
+            else if (Type == CustomWeatherType.Progressing)  // progressive weathers needs...
+            {
+                if (Weathers.Count <= 1)  // to have at least 2 weathers
+                    return false;
+                if (Weathers.Count - 1 == ProgressingTimes.Count && Weathers.Count - 1 == ProgressingChances.Count)  // and to have progressive values set
+                    return true;
+                if (ProgressingTimes.Count != 0 && ProgressingChances.Count != 0)  // or to have one or both of the values empty if not set
+                    return false;
+                if ((ProgressingTimes.Count == 0 && ProgressingChances.Count == 0) ||
+                    (ProgressingTimes.Count == 0 && ProgressingChances.Count == Weathers.Count - 1) ||
+                    (ProgressingChances.Count == 0 && ProgressingTimes.Count == Weathers.Count - 1))  // and that one is empty and the other is set, or both empty
+                {
+                    if (ProgressingTimes.Count == 0)  // fill with default times
+                    {
+                        var steps = 1f / Weathers.Count;
+                        for (int i = 0; i < Weathers.Count - 1; i++)
+                        {
+                            ProgressingTimes.Add(steps * (i + 1));
+                        }
+                    }
+                    if (ProgressingChances.Count == 0)  // fill with default chances
+                    {
+                        ProgressingChances.AddRange(Weathers.Select(x => 1f));
+                    }
+                    return true;
+                }
+                return false;
+            }
+            return false;
         }
 
         public bool Register()
@@ -99,15 +149,11 @@ namespace CombinedWeathersToolkit.Toolkit.Core
             switch (Type)
             {
                 case CustomWeatherType.Combined:
-                    new ToolkitCombinedWeatherType(this, WeightModifier ?? 0.2f);
+                    new ToolkitCombinedWeatherType(this);
                     return true;
                 case CustomWeatherType.Progressing:
-                    if (Weathers.Count > 1)
-                    {
-                        new ToolkitProgressingWeatherType(this, (WeightModifier ?? 0.2f) + 0.1f);
-                        return true;
-                    }
-                    break;
+                    new ToolkitProgressingWeatherType(this);
+                    return true;
                 default:
                     break;
             }
