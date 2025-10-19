@@ -101,12 +101,35 @@ namespace CombinedWeathersToolkit.Toolkit.Core
             }
         }
 
+        public List<ProgressingWeatherEntry> GetProgressingWeatherEntries()
+        {
+            var result = new List<ProgressingWeatherEntry>();
+            for (int i = 1; i < Weathers.Count; i++)
+            {
+                result.Add(new ProgressingWeatherEntry() { DayTime = ProgressingTimes[i - 1], Chance = ProgressingChances[i - 1], Weather = Weathers[i] });
+            }
+            return result;
+        }
+
+        public bool AreWeathersInstalled()
+        {
+            foreach (var weather in Weathers)
+            {
+                if (weather.WeatherName != "" && !Plugin.installedWeathers.Any(w => w == weather.WeatherName))
+                    return false;
+            }
+            return true;
+        }
+
         public bool IsValid()
         {
             if (Type == null || Type == CustomWeatherType.Normal)  // set Type to Combined if not specified
                 Type = CustomWeatherType.Combined;
 
             if (string.IsNullOrEmpty(Name))  // make sure Name is set
+                return false;
+
+            if (!AreWeathersInstalled())  // make sure all weathers are installed
                 return false;
 
             if (Type == CustomWeatherType.Combined)  // combined weathers needs to have at least 1 weather

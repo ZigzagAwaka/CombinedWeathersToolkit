@@ -8,7 +8,7 @@ namespace CombinedWeathersToolkit.Toolkit.Core
         internal ToolkitWeather ToolkitWeather;
 
         internal ToolkitProgressingWeatherType(ToolkitWeather toolkit) : base(toolkit.Name, toolkit.Weathers[0],
-            ToolkitHelper.GetProgressingWeatherEntries(toolkit), (toolkit.WeightModifier ?? 0.2f) + 0.1f)
+            toolkit.GetProgressingWeatherEntries(), (toolkit.WeightModifier ?? 0.2f) + 0.1f)
         {
             ToolkitWeather = toolkit;
             ToolkitHelper.SetColor(toolkit, this);

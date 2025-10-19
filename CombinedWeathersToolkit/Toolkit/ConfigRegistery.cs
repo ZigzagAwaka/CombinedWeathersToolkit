@@ -58,7 +58,7 @@ namespace CombinedWeathersToolkit.Toolkit
                     Plugin.DebugLog($"[ConfigRegistery] The '{weatherString}' value is not valid and could not register a weather ; this can happen if the name of the weather was not set or if one of the added weathers is a modded weather and the mod it's from it not installed");
                 }
             }
-            Plugin.logger.LogInfo($"[ConfigRegistery] Loaded {nbWeathers} combined weathers from Weather Config creator");
+            Plugin.logger.LogInfo($"[ConfigRegistery] Loaded {nbWeathers} custom weathers from Weather Config creator");
         }
     }
 }

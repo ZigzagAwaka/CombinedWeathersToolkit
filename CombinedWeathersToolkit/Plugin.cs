@@ -1,17 +1,13 @@
 ﻿using BepInEx;
 using BepInEx.Logging;
-using CombinedWeathersToolkit.Toolkit;
 using HarmonyLib;
+using System.Collections.Generic;
 
 namespace CombinedWeathersToolkit
 {
     [BepInPlugin(GUID, NAME, VERSION)]
     [BepInDependency("WeatherTweaks")]
     [BepInDependency("mrov.WeatherRegistry")]
-    [BepInDependency("voxx.LethalElementsPlugin", BepInDependency.DependencyFlags.SoftDependency)]
-    [BepInDependency("CodeRebirth", BepInDependency.DependencyFlags.SoftDependency)]
-    [BepInDependency("MrovWeathers", BepInDependency.DependencyFlags.SoftDependency)]
-    [BepInDependency("zigzag.legendweathers", BepInDependency.DependencyFlags.SoftDependency)]
     public class Plugin : BaseUnityPlugin
     {
         const string GUID = "zigzag.combinedweatherstoolkit";
@@ -22,6 +18,8 @@ namespace CombinedWeathersToolkit
         public static ManualLogSource logger;
         private readonly Harmony harmony = new Harmony(GUID);
         internal static Config config { get; private set; } = null!;
+
+        internal static List<string> installedWeathers = new List<string>();
 
         internal static void DebugLog(object message)
         {
@@ -35,16 +33,10 @@ namespace CombinedWeathersToolkit
             instance = this;
             logger = Logger;
             config = new Config(Config);
+
             config.SetupCustomConfigs();
-
-            if (config.RegisterPredefinedWeathers.Value)
-                PredefinedRegistery.LoadAllPredefinedWeathers();
-            if (config.AllowConfigRegistery.Value)
-                ConfigRegistery.LoadAllConfigValues();
-            if (config.AllowJsonRegistery.Value)
-                JsonRegistery.LoadAllJsonFiles();
-
             harmony.PatchAll();
+
             logger.LogInfo($"{NAME} is loaded !");
         }
     }

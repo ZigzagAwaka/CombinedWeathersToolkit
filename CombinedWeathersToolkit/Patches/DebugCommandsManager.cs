@@ -20,20 +20,26 @@ namespace CombinedWeathersToolkit.Patches
                 var command = chatMessage.Split(' ');
                 if (command.Length <= 1)
                     return;
-                switch (command[1])
-                {
-                    case "clear":
-                        Effects.ChangeWeather(LevelWeatherType.None);
-                        Effects.Message("Debug CWT", "Removed all weathers from current level");
-                        break;
-                    case "list":
-                        Effects.Message("Debug CWT", "Current weathers: " + Effects.GetListOfCurrentWeathers());
-                        break;
-                    default:
-                        Effects.AddCombinedWeather(command[1]);
-                        Effects.Message("Debug CWT", "Spawned " + command[1] + " combined weather");
-                        break;
-                }
+                ExecuteCommand(command);
+            }
+        }
+
+
+        private static void ExecuteCommand(string[] command)
+        {
+            switch (command[1])
+            {
+                case "clear":
+                    Effects.ChangeWeather(LevelWeatherType.None);
+                    Effects.Message("Debug CWT", "Removed all weathers from current level");
+                    break;
+                case "list":
+                    Effects.Message("Debug CWT", "Current weathers: " + Effects.GetListOfCurrentWeathers());
+                    break;
+                default:
+                    Effects.AddCombinedWeather(command[1]);
+                    Effects.Message("Debug CWT", "Spawned " + command[1] + " combined weather");
+                    break;
             }
         }
     }

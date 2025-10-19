@@ -22,7 +22,7 @@ namespace CombinedWeathersToolkit.Toolkit
                 var fileName = Path.GetFileName(filePath);
                 Plugin.DebugLog($"[JsonRegistery] Found json file, now loading: {fileName}");
                 var nbWeathers = RegisterWeathersFromJson(filePath);
-                Plugin.logger.LogInfo($"[JsonRegistery] Loaded {nbWeathers} combined weathers from json file: {fileName}");
+                Plugin.logger.LogInfo($"[JsonRegistery] Loaded {nbWeathers} custom weathers from json file: {fileName}");
             }
         }
 
