@@ -1,0 +1,21 @@
+{
+    "example": {
+        "type": "Combined",
+        "name": "Rainy + Eclipsed + Foggy",
+        "color": "#FF0000",
+        "weight": 100,
+        "scrap_amount": 1.0,
+        "scrap_value": 1.2,
+        "filtering": false,
+        "level_filter": "Company",
+        "level_weights": "MoonName@50",
+        "weather_to_weather_weights": "WeatherName@50",
+        "progressing_times": [0.5, 0.8],
+        "progressing_chances": [0.3, 1],
+        "weathers": [
+            "Rainy",
+            "Eclipsed",
+            "Foggy"
+        ]
+    }
+}

@@ -1,0 +1,19 @@
+{
+    "example": {
+        "type": "Combined",
+        "name": "Rain and fog",
+        "weathers": [
+            "Rainy",
+            "foggy"
+        ]
+    },
+    "example2": {
+        "type": "Combined",
+        "name": "ABIBABOU",
+        "color": "magenta",
+        "weathers": [
+            "foggy",
+            "eclipsed"
+        ]
+    }
+}
