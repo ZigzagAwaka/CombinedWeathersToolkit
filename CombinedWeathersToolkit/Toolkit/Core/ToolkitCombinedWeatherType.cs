@@ -38,7 +38,12 @@ namespace CombinedWeathersToolkit.Toolkit.Core
         public override (float valueMultiplier, float amountMultiplier) GetDefaultMultiplierData()
         {
             if (!ToolkitWeather.ScrapValueMultiplier.HasValue && !ToolkitWeather.ScrapAmountMultiplier.HasValue)
-                return base.GetDefaultMultiplierData();
+            {
+                var defaultMultipliers = base.GetDefaultMultiplierData();
+                if (ToolkitHelper.ShouldResetAmountData(ToolkitWeather))
+                    defaultMultipliers.amountMultiplier = 1f;
+                return defaultMultipliers;
+            }
             return ToolkitHelper.GetMultipliers(ToolkitWeather);
         }
     }
