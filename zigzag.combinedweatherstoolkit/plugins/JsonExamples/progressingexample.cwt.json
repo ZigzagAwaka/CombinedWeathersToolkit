@@ -1,0 +1,19 @@
+{
+    "example": {
+        "type": "Progressing",
+        "name": "Rainy > Eclipsed > Foggy > Forsaken",
+        "color": "magenta",
+        "weight": 50,
+        "scrap_amount": 1.0,
+        "scrap_value": 1.0,
+        "progressing_times": [0.2, 0.4, 0.7, 0.85],
+        "progressing_chances": [0.5, 1, 1, 1],
+        "weathers": [
+            "Rainy",
+            "Eclipsed",
+            "Eclipsed",
+            "Foggy",
+            "Forsaken"
+        ]
+    }
+}

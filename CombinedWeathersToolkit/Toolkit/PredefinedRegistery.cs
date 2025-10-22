@@ -45,6 +45,7 @@ namespace CombinedWeathersToolkit.Toolkit
             RegisterWeather("Black Fog + Heatwave", "blackfog", "heatwave");
             RegisterWeather("Black Fog + Snowfall", "blackfog", "snowfall");
             RegisterWeather("Black Fog + Blizzard", "blackfog", "blizzard");
+            RegisterWeatherProgressing("Thermal Shift", Hex("#874a00"), "blizzard", "snowfall", "none", "solarflare", "heatwave");
             #endregion
 
             #region CODE REBIRTH
@@ -58,6 +59,7 @@ namespace CombinedWeathersToolkit.Toolkit
             RegisterWeather("Flooded + Hallowed", "flooded", "hallowed");
             RegisterWeather("Hallowed Eclipse", Color.red, "eclipsed", "hallowed");
             RegisterWeather("Forsaken Storm", Hex("#94294b"), "stormy", "forsaken");
+            RegisterWeatherProgressing("Impending Storm", Hex("#c4c156"), "none", "rainy", "cloudy", "stormy", "hurricane");
             #endregion
 
             #region MROV WEATHERS
@@ -93,18 +95,30 @@ namespace CombinedWeathersToolkit.Toolkit
         private static void RegisterWeather(string name, params string[] weathers)
         {
             var toolkit = new ToolkitWeather() { Name = name };
-            RegisterWeather(toolkit, weathers);
+            RegisterWeather(toolkit, CustomWeatherType.Combined, weathers);
         }
 
         private static void RegisterWeather(string name, Color color, params string[] weathers)
         {
             var toolkit = new ToolkitWeather() { Name = name, NameColor = color };
-            RegisterWeather(toolkit, weathers);
+            RegisterWeather(toolkit, CustomWeatherType.Combined, weathers);
         }
 
-        private static void RegisterWeather(ToolkitWeather toolkit, params string[] weathers)
+        private static void RegisterWeatherProgressing(string name, params string[] weathers)
         {
-            toolkit.Type = CustomWeatherType.Combined;
+            var toolkit = new ToolkitWeather() { Name = name };
+            RegisterWeather(toolkit, CustomWeatherType.Progressing, weathers);
+        }
+
+        private static void RegisterWeatherProgressing(string name, Color color, params string[] weathers)
+        {
+            var toolkit = new ToolkitWeather() { Name = name, NameColor = color };
+            RegisterWeather(toolkit, CustomWeatherType.Progressing, weathers);
+        }
+
+        private static void RegisterWeather(ToolkitWeather toolkit, CustomWeatherType type, params string[] weathers)
+        {
+            toolkit.Type = type;
             toolkit.WeightModifier = Plugin.config.PredefinedWeathersWeightModifier.Value;
             toolkit.AddWeathers(weathers);
             if (toolkit.Register())
