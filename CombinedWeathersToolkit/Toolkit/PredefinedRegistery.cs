@@ -74,7 +74,7 @@ namespace CombinedWeathersToolkit.Toolkit
             #endregion
 
             #region CUSTOM
-            var weatherBlacklist = new string[] { "blizzard", "cloudy", "blackout", "blue", "evilblue" };
+            var weatherBlacklist = new string[] { "blizzard", "cloudy", "blackout", "blue", "evilblue", "nightshift" };
             var allWeathers = new List<string>() { "rainy", "stormy", "flooded", "eclipsed" };
 
             foreach (var weather in Plugin.installedWeathers)  // load all installed weathers into the list

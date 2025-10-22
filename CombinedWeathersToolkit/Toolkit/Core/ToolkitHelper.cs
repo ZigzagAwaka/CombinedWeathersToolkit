@@ -29,7 +29,7 @@ namespace CombinedWeathersToolkit.Toolkit.Core
             var (value, amount) = (1f, 1f);
             if (toolkit.ScrapValueMultiplier.HasValue)
                 value = toolkit.ScrapValueMultiplier.Value;
-            if (toolkit.ScrapAmountMultiplier.HasValue)
+            if (toolkit.ScrapAmountMultiplier.HasValue && toolkit.Name != "The End of the World")
                 amount = toolkit.ScrapAmountMultiplier.Value;
             return (value, amount);
         }
