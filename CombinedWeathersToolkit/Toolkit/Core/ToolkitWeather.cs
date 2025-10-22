@@ -75,11 +75,12 @@ namespace CombinedWeathersToolkit.Toolkit.Core
             }
         }
 
-        public void AddWeather(string weatherName)
+        public void AddWeather(string weatherName, bool isNameAlreadyConcat = false)
         {
             if (string.IsNullOrEmpty(weatherName))
                 return;
-            WeatherResolvable weatherResolvable = string.Concat(weatherName.Where(c => !char.IsWhiteSpace(c))).ToLower() switch
+            var name = isNameAlreadyConcat ? weatherName : string.Concat(weatherName.Where(c => !char.IsWhiteSpace(c))).ToLower();
+            WeatherResolvable weatherResolvable = name switch
             {
                 "none" => new WeatherTypeResolvable(LevelWeatherType.None),
                 "dustclouds" => new WeatherTypeResolvable(LevelWeatherType.DustClouds),
@@ -88,7 +89,7 @@ namespace CombinedWeathersToolkit.Toolkit.Core
                 "foggy" => new WeatherTypeResolvable(LevelWeatherType.Foggy),
                 "flooded" => new WeatherTypeResolvable(LevelWeatherType.Flooded),
                 "eclipsed" => new WeatherTypeResolvable(LevelWeatherType.Eclipsed),
-                _ => new WeatherNameResolvable(weatherName)
+                _ => new WeatherNameResolvable(name)
             };
             Weathers.Add(weatherResolvable);
         }

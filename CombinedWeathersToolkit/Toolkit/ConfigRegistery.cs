@@ -29,21 +29,22 @@ namespace CombinedWeathersToolkit.Toolkit
                         Plugin.logger.LogError("[ConfigRegistery] One of the field in Weather Config creator is empty or null, this could result in an unwanted behavior");
                         continue;
                     }
+                    var concatValue = string.Concat(value.Where(c => !char.IsWhiteSpace(c))).ToLower();
                     if (valuePos == 0)
                     {
                         weather.Name = value;
                     }
-                    else if (value.ToLower().StartsWith("color("))
+                    else if (concatValue.StartsWith("color(") && concatValue.EndsWith(')'))
                     {
-                        weather.SetColorFromString(value[6..^1]);  // remove "color(" at start and ")" at end
+                        weather.SetColorFromString(concatValue[6..^1]);  // remove "color(" at start and ")" at end
                     }
-                    else if (value.ToLower().StartsWith("type("))
+                    else if (concatValue.StartsWith("type(") && concatValue.EndsWith(')'))
                     {
-                        weather.SetTypeFromString(value[5..^1]);  // remove "type(" at start and ")" at end
+                        weather.SetTypeFromString(concatValue[5..^1]);  // remove "type(" at start and ")" at end
                     }
                     else
                     {
-                        weather.AddWeather(value);
+                        weather.AddWeather(concatValue, isNameAlreadyConcat: true);
                     }
                     valuePos++;
                 }
