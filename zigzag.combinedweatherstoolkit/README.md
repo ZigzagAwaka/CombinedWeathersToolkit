@@ -16,7 +16,25 @@ Compatible with **v73** of Lethal Company.
 
 The mod will automatically register some custom weather effects coming from multiple mods such as Wesley's Weathers, Lethal Elements, Black fog, Legend Weathers, Code Rebirth, Mrov Weathers and even Blue.
 
-<details><summary>Click on the section here to discover what the mod can do</summary>
+**<details><summary>Click on the section here to discover what the mod can do</summary>**
+
+</br>
+
+![Preview](https://raw.githubusercontent.com/ZigzagAwaka/CombinedWeathersToolkit/main/Previews/Images/showcase2.PNG)
+
+![Preview](https://raw.githubusercontent.com/ZigzagAwaka/CombinedWeathersToolkit/main/Previews/Images/showcase1.png)
+
+![Preview](https://raw.githubusercontent.com/ZigzagAwaka/CombinedWeathersToolkit/main/Previews/Images/showcase3.PNG)
+
+![Preview](https://raw.githubusercontent.com/ZigzagAwaka/CombinedWeathersToolkit/main/Previews/Images/showcase4.PNG)
+
+![Preview](https://raw.githubusercontent.com/ZigzagAwaka/CombinedWeathersToolkit/main/Previews/Images/showcase5.PNG)
+
+![Preview](https://raw.githubusercontent.com/ZigzagAwaka/CombinedWeathersToolkit/main/Previews/Images/showcase6.PNG)
+
+![Preview](https://raw.githubusercontent.com/ZigzagAwaka/CombinedWeathersToolkit/main/Previews/Images/showcase7.png)
+
+![Preview](https://raw.githubusercontent.com/ZigzagAwaka/CombinedWeathersToolkit/main/Previews/Images/showcase8.PNG)
 
 </details>
 
