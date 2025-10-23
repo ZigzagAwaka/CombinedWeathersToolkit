@@ -63,11 +63,16 @@ Each of these parameters needs to be separated with a colon `:`, and so if you c
 
 ![Preview](https://raw.githubusercontent.com/ZigzagAwaka/CombinedWeathersToolkit/main/Previews/Doc/preview.PNG)
 
-*Additional notes*
+*<details><summary>Additional notes</summary>*
+
 - if the type is not specified, it will default to a combined weather type
 - if the color is not specified, it will default to the base color [WeatherTweaks](https://thunderstore.io/c/lethal-company/p/mrov/WeatherTweaks/) uses for the weather names (will color the names if it is recognized around a symbol like `+` or `>`)
 - the color can be anything from a [HEX color](https://www.google.com/search?&q=hex+color) or one of the [basic Unity colors](https://docs.unity3d.com/2022.3/Documentation/ScriptReference/Color.html)
 - small writting mistakes in the config text such as a whitespace or capital letters should not cause any issues as long as it follows the format
+
+</details>
+
+</br>
 
 When it is done, launch the game and go into orbit so [WeatherRegistry](https://thunderstore.io/c/lethal-company/p/mrov/WeatherRegistry/) can generate configs for your weathers. You can then go back in the config, this time the one from WeatherRegistry and edit your weather's configs as you want (weight, filtering, scrap multipliers).
 
@@ -79,15 +84,19 @@ That's pretty much it ! Hope you can create some crazy effects with this mod ðŸ™
 
 </details>
 
+</br>
+
 <details><summary>Using .json files</summary>
 
 ### Registering weathers using .json files was meant to be used by developers.
+
+It was made for developers that want to **add special weather combos to their mods**, or for moon makers that wants to **add a specific custom weather that only spawns on their custom moon**.
 
 To register a new custom weather you need to create a json file with a name that will end with `.cwt.json`. The mod is made to detect and load all `.cwt.json` that are located in the `BepInEx/plugins` folder (no matter if it is located in a sub folder or not). This means you can place your files wherever you want in your mod's folder.
 
 You can create as much .json files as you want but it is also possible to do everything inside the same file, it is up to you.
 
-The weather creation in .json files is made in a very user friendly way where you can actually write a very minimal weather or completely configure it with all sorts of options. You can check some json examples [here]() so you can learn how to use it but let's still explain how it works :
+The weather creation in .json files is made in a very user friendly way where you can actually write a very minimal weather or completely configure it with all sorts of options. You can check some json examples [here](https://github.com/ZigzagAwaka/CombinedWeathersToolkit/tree/main/JsonExamples) so you can learn how to use it but let's still explain how it works :
 
 ```json
 {
@@ -135,12 +144,23 @@ A lot of parameters in this example are optional and if it is not specified the 
 
 All of these options are actually coming from [WeatherRegistry](https://thunderstore.io/c/lethal-company/p/mrov/WeatherRegistry/), I just made them open for combined and progressive weathers if a developer wants to use them.
 
-*Additional notes*
+*<details><summary>Additional notes</summary>*
+
 - if `color` is not specified, it will default to the base color [WeatherTweaks](https://thunderstore.io/c/lethal-company/p/mrov/WeatherTweaks/) uses for the weather names (will color the names if it is recognized around a symbol like `+` or `>`)
 - the color can be anything from a [HEX color](https://www.google.com/search?&q=hex+color) or one of the [basic Unity colors](https://docs.unity3d.com/2022.3/Documentation/ScriptReference/Color.html)
-- small writting mistakes when writting weahter names such as a whitespace or capital letters should not cause any issues
+- small writting mistakes when writting `weathers` names such as a whitespace or capital letters should not cause any issues
+- if one of the following: `weight`, `scrap_amount` or `scrap_value` is not specified, it will default to the base values calculated by WeatherTweaks (this will dynamically apply a value based on your number of weather effects)
+- the `filtering` and `level_filter` fields allows to define a blacklist (*"false"*) or whitelist (*"true"*) for moons that tries to spawn your weather
+- the `level_weights` field allows to specify specific moons with specific weights in the format *"MoonName@50,OtherMoonName@9999"* so you can make the weather always spawn on specific moons or never spawn at all if the weight is 0
+- the `weather_to_weather_weights` field allows to specify specific weathers names that will try to spawn your weather after them on the same moon (this uses the same format as `level_weights` but with weather names instead of moon names)
+- and finally, `progressing_times` and `progressing_chances` are exclusive properties to Progressing Weathers types, it allows to specify at which time and chance the weather transition is going to happen (you need to enter as many values here as your number of weather effects **MINUS 1** because the first weather effect is the original weather on the moon)
+- if these values are not specified when creating a progressing weather, the tool will calculate them based on your number of weather effects, so for example if you have 4 weathers (a base effect and 3 progressing effects), the time values are going to be set to 0.25, 0.5 and 0.75, and the chance values will all be 1
 
-When it is done, you don't have anything else to do ! Just publish the json files with your mod and it will work, **there is no need to soft depend on anything** !
+</details>
+
+</br>
+
+When it is done, you don't have anything else to do ! Just publish the json files with your mod, make sure that this tool is installed and it will work, **there is no need to soft depend on anything** !
 
 WeatherRegistry will still generate a unique config for your weather under the `WeatherToolkit Weathers` section but there is nothing to adjust here since everything is already configured (this can then be customized by users of your mod).
 
@@ -148,7 +168,11 @@ That's pretty much it ! Hope you can create some crazy effects with this mod ðŸ™
 
 </details>
 
+</br>
+
 <details><summary>Other utilities</summary>
+
+</br>
 
 <details><summary>Using code</summary>
 
@@ -157,6 +181,8 @@ That's pretty much it ! Hope you can create some crazy effects with this mod ðŸ™
 - But anyways. If you want to use code from this mod you can do so by instanciating a new `ToolkitWeather` class, then populate it with the data you want (name, color, weights, weathers, etc) then call `Register()` on this object. For an example on how it works in practice you can look at [this](https://github.com/ZigzagAwaka/CombinedWeathersToolkit/blob/main/CombinedWeathersToolkit/Toolkit/PredefinedRegistery.cs).
 
 </details>
+
+</br>
 
 <details><summary>Debug commands</summary>
 
@@ -172,6 +198,10 @@ If you want to test how a specific weather combo will look like before creating 
 | `/cwt weathername` | a wanted valid weather name | Spawn the wanted weather as a combined weather effect with the previous ones |
 | `/cwt list` | *none* | Display a message listing all active weathers |
 
+*When using `/cwt weathername` make sure to enter the name with no whitespace and no capital letters!*
+
+![Preview](https://raw.githubusercontent.com/ZigzagAwaka/CombinedWeathersToolkit/main/Previews/Doc/preview.PNG)
+
 </details>
 
 </details>
@@ -179,8 +209,10 @@ If you want to test how a specific weather combo will look like before creating 
 ##
 
 ### Compatibility with other mods
-- compatible with modded weathers
-- f
+- This mod is compatible with any modded weathers that are registered using [WeatherRegistry](https://thunderstore.io/c/lethal-company/p/mrov/WeatherRegistry/)
+- This mod uses custom classes that inherites from the custom weathers classes in [WeatherTweaks](https://thunderstore.io/c/lethal-company/p/mrov/WeatherTweaks/) so anything that affects WeatherTweaks weathers will also affect this mod
+- When using this mod, there is no need to add checks to see if a specific modded weather is installed and enabled because the registering function will do that automatically
+- If a weather that contains an effect from a mod that is not installed tries to be registered then it will fail safely to avoid registering useless weathers
 
 ### Contact & Feedback
 If you want to suggest new features, report issues or simply contact me please go to the mod release page in the [modding discord](https://discord.gg/XeyYqRdRGC) or post a [github issue](https://github.com/ZigzagAwaka/CombinedWeathersToolkit).
@@ -189,4 +221,8 @@ If you want to suggest new features, report issues or simply contact me please g
 
 ### Credits
 
-credits goes here
+- Thanks [Mrov](https://thunderstore.io/c/lethal-company/p/mrov/) for having created [WeatherRegistry](https://thunderstore.io/c/lethal-company/p/mrov/WeatherRegistry/) and [WeatherTweaks](https://thunderstore.io/c/lethal-company/p/mrov/WeatherTweaks/) !
+
+- Thanks [Pacoito](https://thunderstore.io/c/lethal-company/p/pacoito/) for some advice !
+
+- Thanks **ThecheeseXD** for massively testing the mod !
