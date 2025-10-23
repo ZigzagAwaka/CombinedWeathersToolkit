@@ -57,7 +57,7 @@ namespace CombinedWeathersToolkit.Toolkit
 
             #region WESLEY WEATHERS
             RegisterWeather("Flooded + Hallowed", "flooded", "hallowed");
-            RegisterWeather("Hallowed Eclipse", Color.red, "eclipsed", "hallowed");
+            RegisterWeather("Hallowed Eclipse", Color.red, "hallowed", "eclipsed");
             RegisterWeather("Forsaken Storm", Hex("#94294b"), "stormy", "forsaken");
             RegisterWeatherProgressing("Impending Storm", Hex("#c4c156"), "none", "rainy", "cloudy", "stormy", "hurricane");
             #endregion
