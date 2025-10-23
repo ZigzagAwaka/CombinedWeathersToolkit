@@ -254,6 +254,9 @@ If you want to test how a specific weather combo will look like before creating 
 
 - **Watch out**, as some weather combinations will not work well together, some might override the visuals of others completely ! To test if a specific weather combo is being rendered fine you can try to use the Debug commands (this is explained in the "Other utilities" section of this README)
 
+### Planned features
+**Evolutive weathers**: a mix of progressing and combined weathers, where each new weather is going to be added as a combined effect instead of replacing the previous effect
+
 ### Contact & Feedback
 If you want to suggest new features, report issues or simply contact me please go to the mod release page in the [modding discord](https://discord.gg/XeyYqRdRGC) or post a [github issue](https://github.com/ZigzagAwaka/CombinedWeathersToolkit).
 
