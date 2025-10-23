@@ -14,27 +14,45 @@ Compatible with **v73** of Lethal Company.
 
 ### Preview images
 
-The mod will automatically register some custom weather effects coming from multiple mods such as Wesley's Weathers, Lethal Elements, Black fog, Legend Weathers, Code Rebirth, Mrov Weathers and even Blue.
+The mod will automatically register some custom weather effects coming from multiple mods such as [Wesley's Weathers](https://thunderstore.io/c/lethal-company/p/Magic_Wesley/Wesleys_Weathers/), [Lethal Elements](https://thunderstore.io/c/lethal-company/p/pacoito/LethalElementsTheta/), [Black Fog Weather](https://thunderstore.io/c/lethal-company/p/DemonMae/Black_Fog_Weather/), [Legend Weathers](https://thunderstore.io/c/lethal-company/p/Zigzag/LegendWeathers/), [Code Rebirth](https://thunderstore.io/c/lethal-company/p/XuXiaolan/CodeRebirth/), [Mrov Weathers](https://thunderstore.io/c/lethal-company/p/mrov/MrovWeathers/) and even [Blue](https://thunderstore.io/c/lethal-company/p/Generic_GMD/Blue/).
+
+If you want the full experience, make sure to install as many weather mods as you can/want !!
 
 **<details><summary>Click on the section here to discover what the mod can do</summary>**
 
-</br>
+### Superstorm *(stormy + flooded + tornado + hurricane)*
 
 ![Preview](https://raw.githubusercontent.com/ZigzagAwaka/CombinedWeathersToolkit/main/Previews/Images/showcase2.PNG)
 
+### Snowfall + Majora Moon
+
 ![Preview](https://raw.githubusercontent.com/ZigzagAwaka/CombinedWeathersToolkit/main/Previews/Images/showcase1.png)
+
+### Hallowed Eclipse *(hallowed + eclipsed)*
 
 ![Preview](https://raw.githubusercontent.com/ZigzagAwaka/CombinedWeathersToolkit/main/Previews/Images/showcase3.PNG)
 
+### Impending Storm *(none > rainy > cloudy > stormy > hurricane)*
+
 ![Preview](https://raw.githubusercontent.com/ZigzagAwaka/CombinedWeathersToolkit/main/Previews/Images/showcase4.PNG)
+
+### Meteor Shower + Blood Moon
 
 ![Preview](https://raw.githubusercontent.com/ZigzagAwaka/CombinedWeathersToolkit/main/Previews/Images/showcase5.PNG)
 
+### Blue Moon *(blue + bloodmoon)*
+
 ![Preview](https://raw.githubusercontent.com/ZigzagAwaka/CombinedWeathersToolkit/main/Previews/Images/showcase6.PNG)
+
+### Toxic Winds *(toxicsmog + tornado)*
 
 ![Preview](https://raw.githubusercontent.com/ZigzagAwaka/CombinedWeathersToolkit/main/Previews/Images/showcase7.png)
 
+### The End of the World *(all weathers)*
+
 ![Preview](https://raw.githubusercontent.com/ZigzagAwaka/CombinedWeathersToolkit/main/Previews/Images/showcase8.PNG)
+
+**There is a lot more to discover by yourself ðŸ¤—**
 
 </details>
 
@@ -114,7 +132,7 @@ To register a new custom weather you need to create a json file with a name that
 
 You can create as much .json files as you want but it is also possible to do everything inside the same file, it is up to you.
 
-The weather creation in .json files is made in a very user friendly way where you can actually write a very minimal weather or completely configure it with all sorts of options. You can check some json examples [here](https://github.com/ZigzagAwaka/CombinedWeathersToolkit/tree/main/JsonExamples) so you can learn how to use it but let's still explain how it works :
+The weather creation in .json files is made in a very user friendly way where you can actually write a very minimal weather or completely configure it with all sorts of options. You can check some [json examples in the folder by clicking here](https://github.com/ZigzagAwaka/CombinedWeathersToolkit/tree/main/JsonExamples) so you can learn how to write it but let's still explain how it works :
 
 ```json
 {
@@ -142,7 +160,7 @@ This `example` property will actually register the combined weather ***Rainy + E
 
 If you want to make all your weathers in the same `.cwt.json` then you simply need to add other properties fields into the file.
 
-A lot of parameters in this example are optional and if it is not specified the mod will calculate automatic default values. Here's all the possible parameters :
+A lot of parameters in this example are optional and if it is not specified the mod will calculate automatic default values. **The minimum you need to write for it to be valid is the `name` and the `weathers`.** Here's all the possible parameters :
 
 | Parameter name | Accepted values | Default value | Is required? |
 | -------------- | --------------- | ------------- | ------------ |
@@ -196,7 +214,7 @@ That's pretty much it ! Hope you can create some crazy effects with this mod ðŸ™
 
 - While this tool was not meant to be used by code, I guess you can still use it if you like. However if you really want to use code, well you can also use [WeatherTweaks](https://thunderstore.io/c/lethal-company/p/mrov/WeatherTweaks/) directly.
 
-- If you want to use code from this mod you can do so by instanciating a new `ToolkitWeather` class, then populate it with the data you want (name, color, weights, weathers, etc) then call `Register()` on this object. For an example on how it works in practice you can look at [this](https://github.com/ZigzagAwaka/CombinedWeathersToolkit/blob/main/CombinedWeathersToolkit/Toolkit/PredefinedRegistery.cs).
+- If you want to use code from this mod you can do so by instanciating a new `ToolkitWeather` class, then populate it with the data you want (name, color, weights, weathers, etc) then call `Register()` on this object. For an example on how it works in practice you can look at [this code](https://github.com/ZigzagAwaka/CombinedWeathersToolkit/blob/main/CombinedWeathersToolkit/Toolkit/PredefinedRegistery.cs).
 
 </details>
 
@@ -227,10 +245,14 @@ If you want to test how a specific weather combo will look like before creating 
 ##
 
 ### Compatibility with other mods
-- This mod is compatible with any modded weathers that are registered using [WeatherRegistry](https://thunderstore.io/c/lethal-company/p/mrov/WeatherRegistry/)
+
+- This mod is compatible with any **modded weathers** that are registered using [WeatherRegistry](https://thunderstore.io/c/lethal-company/p/mrov/WeatherRegistry/)
+
 - This mod uses custom classes that inherites from the custom weathers classes in [WeatherTweaks](https://thunderstore.io/c/lethal-company/p/mrov/WeatherTweaks/) so anything that affects WeatherTweaks weathers will also affect this mod
-- When using this mod, there is no need to add checks to see if a specific modded weather is installed and enabled because the registering function will do that automatically
-- If a weather that contains an effect from a mod that is not installed tries to be registered then it will fail safely to avoid registering useless weathers
+
+- When using this mod, there is no need to add checks to see if a specific modded weather is installed and enabled because the registering function will do that automatically : **this means if a weather that contains an effect from a mod that is not installed tries to be registered then it will fail safely to avoid registering useless weathers**
+
+- **Watch out**, as some weather combinations will not work well together, some might override the visuals of others completely ! To test if a specific weather combo is being rendered fine you can try to use the Debug commands (this is explained in the "Other utilities" section of this README)
 
 ### Contact & Feedback
 If you want to suggest new features, report issues or simply contact me please go to the mod release page in the [modding discord](https://discord.gg/XeyYqRdRGC) or post a [github issue](https://github.com/ZigzagAwaka/CombinedWeathersToolkit).
