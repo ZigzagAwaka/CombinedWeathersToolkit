@@ -12,7 +12,7 @@ namespace CombinedWeathersToolkit
     {
         const string GUID = "zigzag.combinedweatherstoolkit";
         const string NAME = "Combined_Weathers_Toolkit";
-        const string VERSION = "1.0.0";
+        const string VERSION = "1.0.1";
 
         public static Plugin instance;
         public static ManualLogSource logger;
