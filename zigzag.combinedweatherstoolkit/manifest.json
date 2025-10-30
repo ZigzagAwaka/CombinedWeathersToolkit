@@ -1,6 +1,6 @@
 {
     "name": "Combined_Weathers_Toolkit",
-    "version_number": "1.0.1",
+    "version_number": "1.0.2",
     "website_url": "https://github.com/ZigzagAwaka/CombinedWeathersToolkit",
     "description": "Provides easy ways for developers and users to register combined weather effects in WeatherTweaks without needing to write code. Also comes with some predefined combined weathers!",
     "dependencies": [
