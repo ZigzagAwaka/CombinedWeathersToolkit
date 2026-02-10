@@ -2,6 +2,7 @@
 using HarmonyLib;
 using System.Linq;
 using WeatherRegistry;
+using WeatherRegistry.Enums;
 
 namespace CombinedWeathersToolkit.Patches
 {

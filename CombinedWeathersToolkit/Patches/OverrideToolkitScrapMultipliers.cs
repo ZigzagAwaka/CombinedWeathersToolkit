@@ -3,6 +3,7 @@ using HarmonyLib;
 using System.Linq;
 using System.Reflection;
 using WeatherRegistry;
+using WeatherRegistry.Enums;
 using WeatherTweaks.Definitions;
 
 namespace CombinedWeathersToolkit.Patches
@@ -27,7 +28,7 @@ namespace CombinedWeathersToolkit.Patches
             __instance.Config.ScrapValueMultiplier = new FloatConfigHandler(value);
             __instance.Config.ScrapAmountMultiplier = new FloatConfigHandler(value2);
             __instance.Effect.SunAnimatorBool = WeatherManager.GetWeather(__instance.WeatherTypes.Last().WeatherType).Effect.SunAnimatorBool;
-            var methodPointer = typeof(Weather).GetMethod("Init", BindingFlags.NonPublic | BindingFlags.Instance).MethodHandle.GetFunctionPointer();
+            var methodPointer = typeof(Weather).GetMethod("Init", BindingFlags.Public | BindingFlags.Instance).MethodHandle.GetFunctionPointer();
             ((System.Action)System.Activator.CreateInstance(typeof(System.Action), __instance, methodPointer)).Invoke();
             return false;
         }

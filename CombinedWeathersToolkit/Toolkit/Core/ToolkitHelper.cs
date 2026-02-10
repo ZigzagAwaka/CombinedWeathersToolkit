@@ -44,13 +44,11 @@ namespace CombinedWeathersToolkit.Toolkit.Core
             if (weather == null || !weather.ConfigCategory.StartsWith("WeatherToolkit"))
                 return null;
             ToolkitWeather? toolkit = null;
-            var currentWeatherAsToolkitCombined = weather as ToolkitCombinedWeatherType;
-            if (currentWeatherAsToolkitCombined != null)
+            if (weather is ToolkitCombinedWeatherType currentWeatherAsToolkitCombined)
                 toolkit = currentWeatherAsToolkitCombined.ToolkitWeather;
             else
             {
-                var currentWeatherAsToolkitProgressing = weather as ToolkitProgressingWeatherType;
-                if (currentWeatherAsToolkitProgressing != null)
+                if (weather is ToolkitProgressingWeatherType currentWeatherAsToolkitProgressing)
                     toolkit = currentWeatherAsToolkitProgressing.ToolkitWeather;
             }
             return toolkit;
