@@ -1,0 +1,215 @@
+<!--Generated with an AI because I'm bad at coding html/css/javascript-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Gradient Generator</title>
+
+<style>
+  :root {
+    --color-top-left: rgb(255, 0, 0);
+    --color-top-right: rgb(0, 255, 0);
+    --color-bottom-right: rgb(0, 0, 255);
+    --color-bottom-left: rgb(255, 255, 0);
+  }
+
+  body {
+    background: #001400;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    gap: 30px;
+    font-family: Arial, sans-serif;
+  }
+
+  .text {
+    font-size: 80px;
+    font-weight: bold;
+  }
+
+  .text span {
+    display: inline-block;
+    background: conic-gradient(
+      from 315deg,
+      var(--color-top-left),
+      var(--color-top-right),
+      var(--color-bottom-right),
+      var(--color-bottom-left),
+      var(--color-top-left)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .controls {
+    background: #222;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: white;
+  }
+
+  .color-row {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+
+  input[type="text"] {
+    padding: 5px;
+    font-size: 16px;
+  }
+
+  input[type="color"] {
+    width: 50px;
+    height: 30px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .color-display {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* for overlay ✓ */
+    width: 60px;
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .copied-check {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    font-size: 16px;
+    color: lime;
+    display: none;
+    pointer-events: none;
+  }
+</style>
+</head>
+<body>
+
+<div class="text"></div>
+
+<div class="controls">
+  <label>
+    Text:
+    <input type="text" id="textInput" value="Custom weather">
+  </label>
+
+  <div class="color-row">
+    <div>
+      <label>Top Left</label>
+      <input type="color" id="topLeft" value="#ff0000">
+      <div class="color-display" id="topLeftDisplay">
+        #ff0000
+        <span class="copied-check">✓</span>
+      </div>
+    </div>
+
+    <div>
+      <label>Top Right</label>
+      <input type="color" id="topRight" value="#00ff00">
+      <div class="color-display" id="topRightDisplay">
+        #00ff00
+        <span class="copied-check">✓</span>
+      </div>
+    </div>
+
+    <div>
+      <label>Bottom Left</label>
+      <input type="color" id="bottomLeft" value="#0000ff">
+      <div class="color-display" id="bottomLeftDisplay">
+        #0000ff
+        <span class="copied-check">✓</span>
+      </div>
+    </div>
+
+    <div>
+      <label>Bottom Right</label>
+      <input type="color" id="bottomRight" value="#ffff00">
+      <div class="color-display" id="bottomRightDisplay">
+        #ffff00
+        <span class="copied-check">✓</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const textElement = document.querySelector(".text");
+  const root = document.documentElement;
+
+  const textInput = document.getElementById("textInput");
+  const topLeft = document.getElementById("topLeft");
+  const topRight = document.getElementById("topRight");
+  const bottomLeft = document.getElementById("bottomLeft");
+  const bottomRight = document.getElementById("bottomRight");
+
+  const topLeftDisplay = document.getElementById("topLeftDisplay");
+  const topRightDisplay = document.getElementById("topRightDisplay");
+  const bottomLeftDisplay = document.getElementById("bottomLeftDisplay");
+  const bottomRightDisplay = document.getElementById("bottomRightDisplay");
+
+  function updateText(text) {
+    textElement.innerHTML = "";
+    text.split("").forEach(letter => {
+      if (letter === " ") {
+        textElement.appendChild(document.createTextNode(" "));
+      } else {
+        const span = document.createElement("span");
+        span.textContent = letter;
+        textElement.appendChild(span);
+      }
+    });
+  }
+
+  function updateColors() {
+    root.style.setProperty('--color-top-left', topLeft.value);
+    root.style.setProperty('--color-top-right', topRight.value);
+    root.style.setProperty('--color-bottom-left', bottomLeft.value);
+    root.style.setProperty('--color-bottom-right', bottomRight.value);
+
+    topLeftDisplay.childNodes[0].nodeValue = topLeft.value;
+    topRightDisplay.childNodes[0].nodeValue = topRight.value;
+    bottomLeftDisplay.childNodes[0].nodeValue = bottomLeft.value;
+    bottomRightDisplay.childNodes[0].nodeValue = bottomRight.value;
+  }
+
+  // Event listeners
+  textInput.addEventListener("input", e => updateText(e.target.value));
+  topLeft.addEventListener("input", updateColors);
+  topRight.addEventListener("input", updateColors);
+  bottomLeft.addEventListener("input", updateColors);
+  bottomRight.addEventListener("input", updateColors);
+
+  // Click-to-copy overlay ✓
+  [topLeftDisplay, topRightDisplay, bottomLeftDisplay, bottomRightDisplay].forEach(display => {
+    display.addEventListener("click", () => {
+      const hex = display.childNodes[0].nodeValue.trim();
+      navigator.clipboard.writeText(hex);
+      const check = display.querySelector(".copied-check");
+      check.style.display = "inline";
+      setTimeout(() => check.style.display = "none", 800);
+    });
+  });
+
+  // Initialize
+  updateText(textInput.value);
+  updateColors();
+</script>
+
+</body>
+</html>
