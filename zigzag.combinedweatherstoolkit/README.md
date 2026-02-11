@@ -6,7 +6,7 @@
 
 - For **developers**, this is pretty much the same but it is done in .json files (note that those files have more customizations than the config).
 
-- And finally, the mod also comes with **40+ predefined custom weathers**! So anyone can just install it and play.
+- And finally, the mod also comes with **50+ predefined custom weathers**! So anyone can just install it and play.
 
 Compatible with **v73** of Lethal Company.
 
@@ -14,7 +14,7 @@ Compatible with **v73** of Lethal Company.
 
 ### Preview images
 
-The mod will automatically register some custom weather effects coming from multiple mods such as [Wesley's Weathers](https://thunderstore.io/c/lethal-company/p/Magic_Wesley/Wesleys_Weathers/), [Lethal Elements](https://thunderstore.io/c/lethal-company/p/pacoito/LethalElementsTheta/), [Black Fog Weather](https://thunderstore.io/c/lethal-company/p/DemonMae/Black_Fog_Weather/), [Legend Weathers](https://thunderstore.io/c/lethal-company/p/Zigzag/LegendWeathers/), [Code Rebirth](https://thunderstore.io/c/lethal-company/p/XuXiaolan/CodeRebirth/), [Mrov Weathers](https://thunderstore.io/c/lethal-company/p/mrov/MrovWeathers/) and even [Blue](https://thunderstore.io/c/lethal-company/p/Generic_GMD/Blue/).
+The mod will automatically register some custom weather effects coming from multiple mods such as [Wesley's Weathers](https://thunderstore.io/c/lethal-company/p/Magic_Wesley/Wesleys_Weathers/), [Lethal Elements](https://thunderstore.io/c/lethal-company/p/pacoito/LethalElementsTheta/), [Black Fog Weather](https://thunderstore.io/c/lethal-company/p/DemonMae/Black_Fog_Weather/), [Legend Weathers](https://thunderstore.io/c/lethal-company/p/Zigzag/LegendWeathers/), [Code Rebirth](https://thunderstore.io/c/lethal-company/p/XuXiaolan/CodeRebirth/), [Mrov Weathers](https://thunderstore.io/c/lethal-company/p/mrov/MrovWeathers/), [Blue](https://thunderstore.io/c/lethal-company/p/Generic_GMD/Blue/), [Orage](https://thunderstore.io/c/lethal-company/p/Generic_GMD/Orage/), [Rapture Weather](https://thunderstore.io/c/lethal-company/p/Generic_GMD/Rapture_Weather/) and [Kenji's Weathers](https://thunderstore.io/c/lethal-company/p/rectorado/Kenjis_Weathers/).
 
 If you want the full experience, make sure to install as many weather mods as you can/want !!
 
@@ -40,7 +40,7 @@ If you want the full experience, make sure to install as many weather mods as yo
 
 ![Preview](https://raw.githubusercontent.com/ZigzagAwaka/CombinedWeathersToolkit/main/Previews/Images/showcase5.PNG)
 
-### Blue Moon *(blue + bloodmoon)*
+### Dark Blue Moon *(blue + bloodmoon)*
 
 ![Preview](https://raw.githubusercontent.com/ZigzagAwaka/CombinedWeathersToolkit/main/Previews/Images/showcase6.PNG)
 
