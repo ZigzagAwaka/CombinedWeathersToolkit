@@ -3,10 +3,35 @@ using HarmonyLib;
 using TMPro;
 using WeatherRegistry;
 using WeatherRegistry.Patches;
+using WeatherRegistry.Utils;
 using WeatherTweaks.Definitions;
 
 namespace CombinedWeathersToolkit.Patches
 {
+    [HarmonyPatch(typeof(WeatherRegistry.Managers.StartupManager))]
+    internal class ScreenMapColorsArrowFixer
+    {
+        [HarmonyPostfix]
+        [HarmonyPatch("Init")]
+        public static void AddArrowDataToScreenMapColors()
+        {
+            foreach (var weather in WeatherManager.Weathers)
+            {
+                if (weather.Name.Contains('>'))
+                {
+                    var toolkit = ToolkitHelper.GetToolkitFromWeatherTweaksWeather(weather as WeatherTweaksWeather);
+                    if (toolkit == null || toolkit.NameColor == null)
+                    {
+                        continue;
+                    }
+                    Settings.ScreenMapColors.Add(weather.Name.Replace(">", Defaults.SpecialSymbolMap[">"]), weather.ColorGradient);
+                    Plugin.DebugLog($"{weather.Name} was added to ScreenMapColors by CWT using SpecialSymbolMap");
+                }
+            }
+        }
+    }
+
+
     [HarmonyPatch(typeof(SetMapScreenInfoToCurrentLevelPatch))]
     internal class CustomToolkitScreenColor
     {
@@ -18,28 +43,30 @@ namespace CombinedWeathersToolkit.Patches
             {
                 return;
             }
+
             Weather currentWeather = WeatherManager.GetCurrentWeather(level);
             var toolkit = ToolkitHelper.GetToolkitFromWeatherTweaksWeather(currentWeather as WeatherTweaksWeather);
+
             if (toolkit == null || toolkit.NameColor == null)
             {
                 return;
             }
-            TMP_ColorGradient color = toolkit.NameColor;
-            Plugin.DebugLog($"{toolkit.Name} weather was spawned using CWT with a defined color of {color.topLeft},{color.topRight},{color.bottomLeft},{color.bottomRight}");
-            string currentWeatherString = SetMapScreenInfoToCurrentLevelPatch.GetDisplayWeatherString(level, currentWeather);
-            TMP_ColorGradient pickedColor = Settings.ScreenMapColors.TryGetValue(currentWeatherString, out TMP_ColorGradient value)
-               ? value
-               : new TMP_ColorGradient();
 
-            //color.topLeft = new Color(color.topLeft.r, color.topLeft.g * 1.1f, color.topLeft.b, color.topLeft.a);
-            //color.topRight = new Color(color.topRight.r, color.topRight.g * 1.1f, color.topRight.b, color.topRight.a);
-            //color.bottomLeft = new Color(color.bottomLeft.r, color.bottomLeft.g * 1.1f, color.bottomLeft.b, color.bottomLeft.a);
-            //color.bottomRight = new Color(color.bottomRight.r, color.bottomRight.g * 1.1f, color.bottomRight.b, color.bottomRight.a);
-            //color = new Color(color.r, color.g * 1.1f, color.b, color.a);
-            //var colorValue = ColorUtility.ToHtmlStringRGB(color);
-            if (pickedColor != null && pickedColor != new TMP_ColorGradient())
+            Plugin.DebugLog($"{toolkit.Name} weather was spawned using CWT with a defined color");
+
+            string currentWeatherString = SetMapScreenInfoToCurrentLevelPatch.GetDisplayWeatherString(level, currentWeather);
+            string currentWeatherStringOri = currentWeatherString;
+
+            if (currentWeatherString.Contains('>'))
             {
-                __result = $"<gradient={currentWeatherString}>{currentWeatherString}</gradient>";
+                currentWeatherString = currentWeatherString.Replace(">", Defaults.SpecialSymbolMap[">"]);
+            }
+
+            TMP_ColorGradient? pickedColor = Settings.ScreenMapColors.TryGetValue(currentWeatherString, out TMP_ColorGradient value) ? value : null;
+
+            if (pickedColor != null && pickedColor != ColorConverter.CreateColorGradientInstance())
+            {
+                __result = $"<gradient={currentWeatherString}>{currentWeatherStringOri}</gradient>";
             }
             else
             {

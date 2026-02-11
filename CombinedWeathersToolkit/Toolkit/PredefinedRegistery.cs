@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using WeatherRegistry.Utils;
 using WeatherTweaks.Definitions;
 
 namespace CombinedWeathersToolkit.Toolkit
@@ -146,7 +147,7 @@ namespace CombinedWeathersToolkit.Toolkit
             var gradient = ToolkitHelper.GetColorGradientFromString(colorStr);
             if (gradient != null)
                 return gradient;
-            return new TMP_ColorGradient(Color.cyan);
+            return ColorConverter.ToTMPColorGradient(Color.cyan);
         }
     }
 }

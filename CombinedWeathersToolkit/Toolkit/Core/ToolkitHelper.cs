@@ -2,6 +2,7 @@
 using TMPro;
 using UnityEngine;
 using WeatherRegistry;
+using WeatherRegistry.Utils;
 using WeatherTweaks.Definitions;
 
 namespace CombinedWeathersToolkit.Toolkit.Core
@@ -98,17 +99,29 @@ namespace CombinedWeathersToolkit.Toolkit.Core
             return colors;
         }
 
+
         public static TMP_ColorGradient? GetColorGradientFromString(string colorString)
         {
             Color[] colors = GetColorsFromString(colorString);
             return colors.Length switch
             {
-                1 => new TMP_ColorGradient(colors[0]),
-                2 => new TMP_ColorGradient(colors[0], colors[1], colors[0], colors[1]),
-                3 => new TMP_ColorGradient(colors[0], colors[1], colors[2], colors[2]),
-                4 => new TMP_ColorGradient(colors[0], colors[1], colors[2], colors[3]),
+                1 => ColorConverter.ToTMPColorGradient(colors[0]),
+                2 => GetGradientFull(colors[0], colors[1], colors[0], colors[1]),
+                3 => GetGradientFull(colors[0], colors[1], colors[2], colors[2]),
+                4 => GetGradientFull(colors[0], colors[1], colors[2], colors[3]),
                 _ => null,
             };
+        }
+
+        private static TMP_ColorGradient GetGradientFull(Color color0, Color color1, Color color2, Color color3)
+        {
+            TMP_ColorGradient colorGradient = ColorConverter.CreateColorGradientInstance();
+            colorGradient.colorMode = ColorMode.FourCornersGradient;
+            colorGradient.topLeft = color0;
+            colorGradient.topRight = color1;
+            colorGradient.bottomLeft = color2;
+            colorGradient.bottomRight = color3;
+            return colorGradient;
         }
     }
 }
