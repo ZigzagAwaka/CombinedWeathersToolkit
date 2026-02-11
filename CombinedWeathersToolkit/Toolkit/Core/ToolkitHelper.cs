@@ -1,4 +1,7 @@
-﻿using WeatherRegistry;
+﻿using System.Linq;
+using TMPro;
+using UnityEngine;
+using WeatherRegistry;
 using WeatherTweaks.Definitions;
 
 namespace CombinedWeathersToolkit.Toolkit.Core
@@ -12,8 +15,8 @@ namespace CombinedWeathersToolkit.Toolkit.Core
 
         internal static void SetColor(ToolkitWeather toolkit, Weather weather)
         {
-            if (toolkit.NameColor.HasValue)
-                weather.Color = toolkit.NameColor.Value;
+            if (toolkit.NameColor != null)
+                weather.ColorGradient = toolkit.NameColor;
         }
 
         internal static void SetConfig(ToolkitWeather toolkit, WeatherTweaksWeather weather)
@@ -52,6 +55,60 @@ namespace CombinedWeathersToolkit.Toolkit.Core
                     toolkit = currentWeatherAsToolkitProgressing.ToolkitWeather;
             }
             return toolkit;
+        }
+
+
+        public static Color[] GetColorsFromString(string colorString)
+        {
+            var parsedColors = colorString.ToLower().Split('/').Select(s => s.Trim()).ToArray();
+            Color[] colors = new Color[parsedColors.Length];
+
+            for (int i = 0; i < parsedColors.Length; i++)
+            {
+                var colorStr = parsedColors[i];
+                Color color;
+
+                if (colorStr[0] == '#')
+                {
+                    if (ColorUtility.TryParseHtmlString(colorStr, out var customColor))
+                        color = customColor;
+                    else
+                        color = Color.cyan;
+                }
+                else
+                {
+                    color = colorStr.ToLower() switch
+                    {
+                        "red" => Color.red,
+                        "green" => Color.green,
+                        "blue" => Color.blue,
+                        "yellow" => Color.yellow,
+                        "cyan" => Color.cyan,
+                        "magenta" => Color.magenta,
+                        "black" => Color.black,
+                        "white" => Color.white,
+                        "gray" => Color.gray,
+                        "grey" => Color.grey,
+                        "clear" => Color.clear,
+                        _ => Color.cyan
+                    };
+                }
+                colors[i] = color;
+            }
+            return colors;
+        }
+
+        public static TMP_ColorGradient? GetColorGradientFromString(string colorString)
+        {
+            Color[] colors = GetColorsFromString(colorString);
+            return colors.Length switch
+            {
+                1 => new TMP_ColorGradient(colors[0]),
+                2 => new TMP_ColorGradient(colors[0], colors[1], colors[0], colors[1]),
+                3 => new TMP_ColorGradient(colors[0], colors[1], colors[2], colors[2]),
+                4 => new TMP_ColorGradient(colors[0], colors[1], colors[2], colors[3]),
+                _ => null,
+            };
         }
     }
 }

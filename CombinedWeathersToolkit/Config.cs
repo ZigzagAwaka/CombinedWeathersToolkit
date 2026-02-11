@@ -27,7 +27,7 @@ namespace CombinedWeathersToolkit
             PredefinedWeathersWeightModifier = cfg.Bind("Predefined weathers", "Global weight modifier", 0.2f, new ConfigDescription("If 'Register predefined combined weathers' is true, this config will dynamically update the weight of all predefined combined weathers based on this value which will act as a multiplier.\nIf you want all predefined weathers to spawn more often then enter a bigger value here.", new AcceptableValueRange<float>(0f, 100f)));
             DebugLogsEnabled = cfg.Bind("Debug", "Debug logs", false, "Enable more explicit logs in the console (for debug reasons).");
             DebugCommandsEnabled = cfg.Bind("Debug", "Debug commands", false, "Enable debug commands in the game's chat (for debug reasons).");
-            WeatherConfigCreatorString = cfg.Bind("Config weathers", "Weather Config creator", "", "Comma separated list of combined weather effects that will be used to register new weathers from the config.");
+            WeatherConfigCreatorString = cfg.Bind("Config weathers", "Weather Config creator", "", "Comma separated list of combined/progressing weather effects that will be used to register new weathers from the config.");
             WeatherConfigCreatorExample = cfg.Bind("Config weathers", "Example", "Eclipsed + Foggy : Eclipsed : Foggy,Solar Storm: color(#ff0000) : solarflare : stormy,Enemies infestation: color(red) : Eclipsed : forsaken : blood moon : type(progressing)", "This is an example config that explains how to register new combined weathers with the 'Weather Config creator' config.\nFollow the format in the example to write your own weather in 'Weather Config creator'.");
 
             cfg.Save();

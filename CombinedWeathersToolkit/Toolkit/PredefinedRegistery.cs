@@ -1,6 +1,7 @@
 ﻿using CombinedWeathersToolkit.Toolkit.Core;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using WeatherTweaks.Definitions;
 
@@ -14,68 +15,68 @@ namespace CombinedWeathersToolkit.Toolkit
 
             #region MAJORA MOON
             RegisterWeather("Rainy + Majora Moon", "rainy", "majoramoon");
-            RegisterWeather("Majora Eclipsed", Color.magenta, "eclipsed", "majoramoon");
-            RegisterWeather("Majora Chaos", Hex("#750000"), "rainy", "stormy", "eclipsed", "majoramoon");
+            RegisterWeather("Majora Eclipsed", Col("magenta"), "eclipsed", "majoramoon");
+            RegisterWeather("Majora Chaos", Col("#750000"), "rainy", "stormy", "eclipsed", "majoramoon");
             RegisterWeather("Snowfall + Majora Moon", "snowfall", "majoramoon");
-            RegisterWeather("Majora Aurora", Hex("#9eb5ff"), "solarflare", "majoramoon");
+            RegisterWeather("Majora Aurora", Col("#9eb5ff"), "solarflare", "majoramoon");
             RegisterWeather("Tornado + Majora Moon", "tornado", "majoramoon");
-            RegisterWeather("Cosmic Crash", Hex("#82ffd7"), "meteorshower", "majoramoon");
+            RegisterWeather("Cosmic Crash", Col("#82ffd7"), "meteorshower", "majoramoon");
             RegisterWeather("Hallowed + Majora Moon", "hallowed", "majoramoon");
-            RegisterWeather("Majora Tempest", Hex("#736f00"), "stormy", "hurricane", "majoramoon");
-            RegisterWeather("Dark Majora Moon", Hex("#290033"), "blackfog", "majoramoon");
+            RegisterWeather("Majora Tempest", Col("#736f00"), "stormy", "hurricane", "majoramoon");
+            RegisterWeather("Dark Majora Moon", Col("#290033"), "blackfog", "majoramoon");
             #endregion
 
             #region BLOOD MOON
-            RegisterWeather("The Crimson Flood", Hex("#ff4580"), "flooded", "bloodmoon");
+            RegisterWeather("The Crimson Flood", Col("#ff4580"), "flooded", "bloodmoon");
             RegisterWeather("Snowfall + Blood Moon", "snowfall", "bloodmoon");
-            RegisterWeather("Toxic Smog + Blood Moon", Hex("#ff00b3"), "toxicsmog", "bloodmoon");
+            RegisterWeather("Toxic Smog + Blood Moon", Col("#ff00b3"), "toxicsmog", "bloodmoon");
             RegisterWeather("Meteor Shower + Blood Moon", "meteorshower", "bloodmoon");
             RegisterWeather("Forsaken + Blood Moon", "forsaken", "bloodmoon");
-            RegisterWeather("Dark Blood Moon", Hex("#24000c"), "blackfog", "bloodmoon");
-            RegisterWeather("Majora Supermoon", Hex("#ff0095"), "majoramoon", "bloodmoon");
+            RegisterWeather("Dark Blood Moon", Col("#24000c"), "blackfog", "bloodmoon");
+            RegisterWeather("Majora Supermoon", Col("#ff0095"), "majoramoon", "bloodmoon");
             #endregion
 
             #region LETHAL ELEMENTS
-            RegisterWeather("Climate Anomaly", Color.yellow, "snowfall", "heatwave", "solarflare");
+            RegisterWeather("Climate Anomaly", Col("yellow"), "snowfall", "heatwave", "solarflare");
             RegisterWeather("Heatwave + Blizzard", "heatwave", "blizzard");
-            RegisterWeather("Nuclear Winter", Hex("#32a89d"), "toxicsmog", "blizzard");
-            RegisterWeather("Blizzard + Forsaken", Hex("#574885"), "blizzard", "forsaken");
-            RegisterWeather("Hallowed Smog", Hex("#1d3d1d"), "toxicsmog", "hallowed");
-            RegisterWeather("Toxic Winds", Hex("#008042"), "toxicsmog", "tornado");
+            RegisterWeather("Nuclear Winter", Col("#32a89d"), "toxicsmog", "blizzard");
+            RegisterWeather("Blizzard + Forsaken", Col("#574885"), "blizzard", "forsaken");
+            RegisterWeather("Hallowed Smog", Col("#1d3d1d"), "toxicsmog", "hallowed");
+            RegisterWeather("Toxic Winds", Col("#008042"), "toxicsmog", "tornado");
             RegisterWeather("Black Fog + Heatwave", "blackfog", "heatwave");
-            RegisterWeather("Black Fog + Snowfall", Hex("#99ffce"), "blackfog", "snowfall");
-            RegisterWeather("Black Winter", Hex("#5e0fb8"), "blackfog", "blizzard");
-            RegisterWeatherProgressing("Thermal Shift", Hex("#874a00"), "blizzard", "snowfall", "none", "solarflare", "heatwave");
-            RegisterWeatherProgressing("Gravitational Freeze", Hex("#006887"), "heatwave", "solarflare", "none", "snowfall", "blizzard");
+            RegisterWeather("Black Fog + Snowfall", Col("#99ffce"), "blackfog", "snowfall");
+            RegisterWeather("Black Winter", Col("#5e0fb8"), "blackfog", "blizzard");
+            RegisterWeatherProgressing("Thermal Shift", Col("#874a00"), "blizzard", "snowfall", "none", "solarflare", "heatwave");
+            RegisterWeatherProgressing("Gravitational Freeze", Col("#006887"), "heatwave", "solarflare", "none", "snowfall", "blizzard");
             #endregion
 
             #region CODE REBIRTH
-            RegisterWeather("Foggy + Meteor Shower", Color.red, "foggy", "meteorshower");
-            RegisterWeather("Meteor Tempest", Hex("#01060d"), "stormy", "tornado", "meteorshower");
-            RegisterWeather("Gravity Anomaly", Hex("#ff7a7a"), "meteorshower", "eclipsed", "solarflare");
-            RegisterWeather("Superstorm", Color.magenta, "stormy", "flooded", "tornado", "hurricane");
+            RegisterWeather("Foggy + Meteor Shower", Col("red"), "foggy", "meteorshower");
+            RegisterWeather("Meteor Tempest", Col("#01060d"), "stormy", "tornado", "meteorshower");
+            RegisterWeather("Gravity Anomaly", Col("#ff7a7a"), "meteorshower", "eclipsed", "solarflare");
+            RegisterWeather("Superstorm", Col("magenta"), "stormy", "flooded", "tornado", "hurricane");
             #endregion
 
             #region WESLEY WEATHERS
             RegisterWeather("Flooded + Hallowed", "flooded", "hallowed");
-            RegisterWeather("Hallowed Eclipse", Color.red, "hallowed", "eclipsed");
-            RegisterWeather("Forsaken Storm", Hex("#94294b"), "stormy", "forsaken");
-            RegisterWeatherProgressing("Impending Storm", Hex("#c4c156"), "none", "rainy", "cloudy", "stormy", "hurricane");
+            RegisterWeather("Hallowed Eclipse", Col("red"), "hallowed", "eclipsed");
+            RegisterWeather("Forsaken Storm", Col("#94294b"), "stormy", "forsaken");
+            RegisterWeatherProgressing("Impending Storm", Col("#c4c156"), "none", "rainy", "cloudy", "stormy", "hurricane");
             #endregion
 
             #region MROV WEATHERS
-            RegisterWeather("Haunted", Hex("#4f2d6e"), "blackout", "hallowed", "blackfog");
-            RegisterWeather("Nocturne Frost", Hex("##2431a6"), "blackout", "blizzard");
-            RegisterWeather("Darkness", Hex("#030029"), "blackfog", "blackout");
-            RegisterWeather("Total Darkness", Hex("#030029"), "blackfog", "blackout", "foggy");
+            RegisterWeather("Haunted", Col("#4f2d6e"), "blackout", "hallowed", "blackfog");
+            RegisterWeather("Nocturne Frost", Col("##2431a6"), "blackout", "blizzard");
+            RegisterWeather("Darkness", Col("#030029"), "blackfog", "blackout");
+            RegisterWeather("Total Darkness", Col("#030029"), "blackfog", "blackout", "foggy");
             #endregion
 
             #region BLUE
-            RegisterWeather("Bluefall", Hex("#36a3d6"), "blue", "snowfall");
-            RegisterWeather("Blue Fog", Hex("#060a4a"), "blue", "blackfog");
-            RegisterWeather("Blue Moon", Hex("#004175"), "blue", "bloodmoon");
-            RegisterWeather("Majoblue", Hex("#170075"), "blue", "majoramoon");
-            RegisterWeather("Eternal Darkness", Hex("#030029"), "blackfog", "blackout", "foggy", "heatwave", "evilblue");
+            RegisterWeather("Bluefall", Col("#36a3d6"), "blue", "snowfall");
+            RegisterWeather("Blue Fog", Col("#060a4a"), "blue", "blackfog");
+            RegisterWeather("Blue Moon", Col("#004175"), "blue", "bloodmoon");
+            RegisterWeather("Majoblue", Col("#170075"), "blue", "majoramoon");
+            RegisterWeather("Eternal Darkness", Col("#030029"), "blackfog", "blackout", "foggy", "heatwave", "evilblue");
             #endregion
 
             #region CUSTOM
@@ -89,7 +90,7 @@ namespace CombinedWeathersToolkit.Toolkit
                 allWeathers.Add(weather);
             }
 
-            RegisterWeather("The End of the World", Color.magenta, allWeathers.ToArray());
+            RegisterWeather("The End of the World", Col("magenta"), allWeathers.ToArray());
             #endregion
 
             Plugin.logger.LogInfo("[PredefinedRegistery] All predefined weathers are loaded");
@@ -101,7 +102,7 @@ namespace CombinedWeathersToolkit.Toolkit
             RegisterWeather(toolkit, CustomWeatherType.Combined, weathers);
         }
 
-        private static void RegisterWeather(string name, Color color, params string[] weathers)
+        private static void RegisterWeather(string name, TMP_ColorGradient color, params string[] weathers)
         {
             var toolkit = new ToolkitWeather() { Name = name, NameColor = color };
             RegisterWeather(toolkit, CustomWeatherType.Combined, weathers);
@@ -113,7 +114,7 @@ namespace CombinedWeathersToolkit.Toolkit
             RegisterWeather(toolkit, CustomWeatherType.Progressing, weathers);
         }
 
-        private static void RegisterWeatherProgressing(string name, Color color, params string[] weathers)
+        private static void RegisterWeatherProgressing(string name, TMP_ColorGradient color, params string[] weathers)
         {
             var toolkit = new ToolkitWeather() { Name = name, NameColor = color };
             RegisterWeather(toolkit, CustomWeatherType.Progressing, weathers);
@@ -128,11 +129,12 @@ namespace CombinedWeathersToolkit.Toolkit
                 Plugin.DebugLog($"[PredefinedRegistery] Registered weather: {toolkit.Name}");
         }
 
-        private static Color Hex(string hexColor)
+        private static TMP_ColorGradient Col(string colorStr)
         {
-            if (ColorUtility.TryParseHtmlString(hexColor, out var customColor))
-                return customColor;
-            return Color.cyan;
+            var gradient = ToolkitHelper.GetColorGradientFromString(colorStr);
+            if (gradient != null)
+                return gradient;
+            return new TMP_ColorGradient(Color.cyan);
         }
     }
 }

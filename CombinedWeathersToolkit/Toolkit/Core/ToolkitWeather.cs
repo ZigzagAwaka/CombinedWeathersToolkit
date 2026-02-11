@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
+using TMPro;
 using WeatherRegistry;
 using WeatherTweaks.Definitions;
 
@@ -10,7 +10,7 @@ namespace CombinedWeathersToolkit.Toolkit.Core
     {
         public CustomWeatherType? Type;
         public string? Name;
-        public Color? NameColor;
+        public TMP_ColorGradient? NameColor;
         public int? Weight;
         public float? ScrapAmountMultiplier;
         public float? ScrapValueMultiplier;
@@ -37,29 +37,7 @@ namespace CombinedWeathersToolkit.Toolkit.Core
 
         public void SetColorFromString(string colorString)
         {
-            if (colorString[0] == '#')
-            {
-                if (ColorUtility.TryParseHtmlString(colorString, out var customColor))
-                    NameColor = customColor;
-                else
-                    NameColor = null;
-                return;
-            }
-            NameColor = colorString.ToLower() switch
-            {
-                "red" => Color.red,
-                "green" => Color.green,
-                "blue" => Color.blue,
-                "yellow" => Color.yellow,
-                "cyan" => Color.cyan,
-                "magenta" => Color.magenta,
-                "black" => Color.black,
-                "white" => Color.white,
-                "gray" => Color.gray,
-                "grey" => Color.grey,
-                "clear" => Color.clear,
-                _ => null
-            };
+            NameColor = ToolkitHelper.GetColorGradientFromString(colorString);
         }
 
         public void AddProgressingValues(float[] values, bool areTimesValues)
