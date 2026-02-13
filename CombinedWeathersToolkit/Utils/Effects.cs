@@ -88,18 +88,14 @@ namespace CombinedWeathersToolkit.Utils
             return weathersStr;
         }
 
-        public static ImprovedWeatherEffect? GetWeatherEffect(string weatherNameResolvable)
+        public static Weather? GetWeather(string weatherNameResolvable)
         {
-            return GetWeatherEffect(new WeatherNameResolvable(weatherNameResolvable).WeatherType);
+            return GetWeather(new WeatherNameResolvable(weatherNameResolvable).WeatherType);
         }
 
-        public static ImprovedWeatherEffect? GetWeatherEffect(LevelWeatherType weatherType)
+        public static Weather? GetWeather(LevelWeatherType weatherType)
         {
-            var weather = WeatherManager.GetWeather(weatherType);
-            if (weather == null)
-                return null;
-            var weatherEffect = WeatherManager.GetWeather(weatherType).Effect;
-            return weatherEffect;
+            return WeatherManager.GetWeather(weatherType);
         }
 
         public static void Message(string title, string bottom, bool warning = false)
