@@ -62,7 +62,7 @@ namespace CombinedWeathersToolkit.Toolkit
             RegisterWeather("Flooded + Hallowed", "flooded", "hallowed");
             RegisterWeather("Hallowed Eclipse", Col("red"), "hallowed", "eclipsed");
             RegisterWeather("Forsaken Storm", Col("#94294b"), "stormy", "forsaken");
-            RegisterWeather("Earthquakes + Rainy", "earthquakes", "rainy");
+            RegisterWeather("Rainy + Earthquakes", "rainy", "earthquakes");
             RegisterWeatherProgressing("Impending Storm", Col("#c4c156"), "none", "rainy", "cloudy", "stormy", "hurricane");
             #endregion
 
