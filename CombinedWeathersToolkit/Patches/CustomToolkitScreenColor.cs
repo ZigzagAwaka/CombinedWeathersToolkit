@@ -3,7 +3,6 @@ using HarmonyLib;
 using TMPro;
 using WeatherRegistry;
 using WeatherRegistry.Patches;
-using WeatherRegistry.Utils;
 using WeatherTweaks.Definitions;
 
 namespace CombinedWeathersToolkit.Patches
@@ -64,7 +63,7 @@ namespace CombinedWeathersToolkit.Patches
 
             TMP_ColorGradient? pickedColor = Settings.ScreenMapColors.TryGetValue(currentWeatherString, out TMP_ColorGradient value) ? value : null;
 
-            if (pickedColor != null && pickedColor != ColorConverter.CreateColorGradientInstance())
+            if (pickedColor != null && pickedColor != ToolkitHelper.GetGradientInstance())
             {
                 __result = $"<gradient={currentWeatherString}>{currentWeatherStringOri}</gradient>";
             }

@@ -113,15 +113,20 @@ namespace CombinedWeathersToolkit.Toolkit.Core
             };
         }
 
-        private static TMP_ColorGradient GetGradientFull(Color color0, Color color1, Color color2, Color color3)
+        public static TMP_ColorGradient GetGradientFull(Color color0, Color color1, Color color2, Color color3)
         {
-            TMP_ColorGradient colorGradient = ColorConverter.CreateColorGradientInstance();
+            TMP_ColorGradient colorGradient = GetGradientInstance();
             colorGradient.colorMode = ColorMode.FourCornersGradient;
             colorGradient.topLeft = color0;
             colorGradient.topRight = color1;
             colorGradient.bottomLeft = color2;
             colorGradient.bottomRight = color3;
             return colorGradient;
+        }
+
+        public static TMP_ColorGradient GetGradientInstance()
+        {
+            return ScriptableObject.CreateInstance<TMP_ColorGradient>();
         }
     }
 }
