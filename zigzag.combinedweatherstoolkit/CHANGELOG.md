@@ -1,6 +1,7 @@
 ## 1.1.0
-- Updated to be compatible with [WeatherRegistry](https://thunderstore.io/c/lethal-company/p/mrov/WeatherRegistry/) 0.8.0+
+- Updated to be compatible with [WeatherRegistry](https://thunderstore.io/c/lethal-company/p/mrov/WeatherRegistry/) 0.8.5+ and [WeatherTweaks](https://thunderstore.io/c/lethal-company/p/mrov/WeatherTweaks/) 1.1.8+
 - Added support to configure color gradients names for all weathers created by this tool, check the "Other utilities" section of the Readme to learn how to configure gradients
+- Added `Unique weather Algorithm` misc config, this can be used to force spawn the selected weather every day on every moons
 - Renamed and changed color of some predefined weathers
 - Updated effects of some predefined weathers
 - Added 10 new predefined weathers
