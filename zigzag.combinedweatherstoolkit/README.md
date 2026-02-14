@@ -104,6 +104,7 @@ Each of these parameters needs to be separated with a colon `:`, and so if you c
 - if the type is not specified, it will default to a **combined weather** type
 - if the color is not specified, it will default to the base color [WeatherTweaks](https://thunderstore.io/c/lethal-company/p/mrov/WeatherTweaks/) uses for the weather names (will color the names if it is recognized around a symbol like `+` or `>`)
 - the color can be anything from a [HEX color](https://www.google.com/search?&q=hex+color) or one of the [basic Unity colors](https://docs.unity3d.com/2022.3/Documentation/ScriptReference/Color.html)
+- the color can be a single color or a gradient color, to learn how to create a gradient color take a look at the "Other utilities" section of this README
 - small writting mistakes in the config text such as a whitespace or capital letters should not cause any issues as long as it follows the format
 
 </details>
@@ -184,6 +185,7 @@ All of these options are actually coming from [WeatherRegistry](https://thunders
 
 - if `color` is not specified, it will default to the base color [WeatherTweaks](https://thunderstore.io/c/lethal-company/p/mrov/WeatherTweaks/) uses for the weather names (will color the names if it is recognized around a symbol like `+` or `>`)
 - the color can be anything from a [HEX color](https://www.google.com/search?&q=hex+color) or one of the [basic Unity colors](https://docs.unity3d.com/2022.3/Documentation/ScriptReference/Color.html)
+- the color can be a single color or a gradient color, to learn how to create a gradient color take a look at the "Other utilities" section of this README
 - small writting mistakes when writting `weathers` names such as a whitespace or capital letters should not cause any issues
 - if one of the following: `weight`, `scrap_amount` or `scrap_value` is not specified, it will default to the base values calculated by WeatherTweaks *(this will **dynamically apply a value based on your number of weather effects**)*
 - the `filtering` and `level_filter` fields allows to define a blacklist (*"false"*) or whitelist (*"true"*) for moons that tries to spawn your weather
@@ -207,6 +209,26 @@ That's pretty much it ! Hope you can create some crazy effects with this mod ðŸ™
 </br>
 
 <details><summary>Other utilities</summary>
+
+</br>
+
+<details><summary>Creating color gradients</summary>
+
+- **Since the 1.1.0 update of this mod**, it is now possible to create a color gradient for the color of the name of your weather as seen on the ship's computer when in orbit !
+
+- Whether you are using .json files or the config, the gradients are created the same way : **simply replace your original color value by a succession of multiple colors separated by a `/`** ! For example :
+    - `#ff0000` can be replaced by something in the form of `#ff0000/#00ff00/#0000ff/#ffffff` to create a four corner gradient with red, green, blue and white colors. Each color representing the specified corners in this order : Top Left / Top Right / Bottom Left / Bottom Right
+    - Other gradient formats are accepted, such as : `red/#00ff00/blue/blue` which will create a blue color at the bottom and red/green color at the top
+    - Only writting 2 colors `color1/color2` will create an horizontal gradient (the same as `color1/color2/color1/color2`)
+    - Only writting 3 colors `color1/color2/color3` will create an horizontal gradient but with a single color at the bottom (the same as `color1/color2/color3/color3`)
+    - Creating a vertical gradient is possible by doing this `color1/color1/color2/color2`
+    - Writting 4 colors `color1/color2/color3/color4` will create a four corner gradient as already explained above
+
+- To help understanding gradients, please take a look at [the documentation](https://docs.unity3d.com/2022.3/Documentation/Manual/UIE-color-gradient.html).
+
+- To help creating gradients, I made a small html tool that you can download [here](https://github.com/ZigzagAwaka/CombinedWeathersToolkit/blob/main/GradientGenerator/GradientTest.html) and open using any internet browser : it can be used to edit a four corner color gradient in real time that you can use as a reference for creating your very own gradient !
+
+</details>
 
 </br>
 
@@ -254,9 +276,10 @@ If you want to test how a specific weather combo will look like before creating 
 
 - **Watch out**, as some weather combinations will not work well together, some might override the visuals of others completely ! To test if a specific weather combo is being rendered fine you can try to use the Debug commands (this is explained in the "Other utilities" section of this README)
 
+- By default, combined weathers will only be able to spawn on moons that supports all individuals weather effects of this specific combined weather (for example, Rainy + Eclipsed will never spawn on Embrion because Embrion does not support the Rainy effect). **HOWEVER**, if you want a way to bypass that, then take a look at [WeatherInjector](https://thunderstore.io/c/lethal-company/p/ZetaArcade/WeatherInjector/)
+
 ### Planned features
-- **Evolutive weathers**: a mix of progressing and combined weathers, where each new weather is going to be added as a combined effect instead of replacing the previous effect
-- **Flooded options**: allows the configuration of Flooded water levels on all moons
+- **Evolutive weathers**: a mix of progressing and combined weathers, where each new weather is going to be added as a combined effect instead of replacing the previous effect (maybe this will be added directly in WeatherTweaks)
 
 ### Contact & Feedback
 If you want to suggest new features, report issues or simply contact me please go to the mod release page in the [modding discord](https://discord.gg/XeyYqRdRGC) or post a [github issue](https://github.com/ZigzagAwaka/CombinedWeathersToolkit).
@@ -267,6 +290,6 @@ If you want to suggest new features, report issues or simply contact me please g
 
 - Thanks [Mrov](https://thunderstore.io/c/lethal-company/p/mrov/) for having created [WeatherRegistry](https://thunderstore.io/c/lethal-company/p/mrov/WeatherRegistry/) and [WeatherTweaks](https://thunderstore.io/c/lethal-company/p/mrov/WeatherTweaks/) !
 
-- Thanks [Pacoito](https://thunderstore.io/c/lethal-company/p/pacoito/) for some advice !
+- Thanks [Pacoito](https://thunderstore.io/c/lethal-company/p/pacoito/), [XyphireTV](https://www.twitch.tv/xyphiretv) and [Zeldahu](https://thunderstore.io/c/lethal-company/p/Zeldahu/) for some advice !
 
 - Thanks **ThecheeseXD** for massively helping at testing the mod !

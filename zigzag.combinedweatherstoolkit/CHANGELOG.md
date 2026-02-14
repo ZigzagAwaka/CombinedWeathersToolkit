@@ -5,9 +5,7 @@
 - Renamed and changed color of some predefined weathers
 - Updated effects of some predefined weathers
 - Added 10 new predefined weathers
-- Updated Readme (now with the full list of predefined weathers)
-
-https://docs.unity3d.com/2022.3/Documentation/Manual/UIE-color-gradient.html
+- Updated Readme (now with the full list of predefined weathers!)
 
 ## 1.0.2
 - Removed Flooded effect from some predefined weathers
