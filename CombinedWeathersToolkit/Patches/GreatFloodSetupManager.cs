@@ -1,4 +1,6 @@
-﻿using HarmonyLib;
+﻿using CombinedWeathersToolkit.Utils;
+using HarmonyLib;
+using System.Collections.Generic;
 using System.Linq;
 using WeatherRegistry;
 using WeatherRegistry.Definitions;
@@ -10,6 +12,15 @@ namespace CombinedWeathersToolkit.Patches
     {
         public static RandomWeatherWithVariables? floodEffect;
         public static bool searchForEffect = true;
+
+        public static readonly List<(string message, bool hasHappened)> tidesWarnings = new List<(string, bool)>()
+        {
+            ("High tide approaching! Water level will rise at its peak very soon. Seek higher ground immediately!", false),
+            ("Low tide is coming! Water level will start to drop, take this chance to meet the quota!", false),
+            ("High tide detected! The flood water level is unstable. Please take refuge in a higher location!", false),
+            ("Low tide is coming! The flood water level is now droping. Stay safe!", false),
+            ("High tide is expected! Water level is starting to rise again, be careful!", false)
+        };
 
 
         /// <summary>
@@ -40,6 +51,31 @@ namespace CombinedWeathersToolkit.Patches
                     else if (TimeOfDay.Instance.currentDayTime >= 982)  // 22:22
                     {
                         floodEffect.weatherVariable = floodEffect.weatherVariable2 = (int)StartOfRound.Instance.middleOfShipNode.transform.position.y;
+                    }
+                    if (TimeOfDay.Instance.currentDayTime >= 350 && !tidesWarnings[0].hasHappened)
+                    {
+                        Effects.MessageComputer(tidesWarnings[0].message);
+                        tidesWarnings[0] = (tidesWarnings[0].message, true);
+                    }
+                    else if (TimeOfDay.Instance.currentDayTime >= 440 && !tidesWarnings[1].hasHappened)
+                    {
+                        Effects.MessageComputer(tidesWarnings[1].message);
+                        tidesWarnings[1] = (tidesWarnings[1].message, true);
+                    }
+                    else if (TimeOfDay.Instance.currentDayTime >= 680 && !tidesWarnings[2].hasHappened)
+                    {
+                        Effects.MessageComputer(tidesWarnings[2].message);
+                        tidesWarnings[2] = (tidesWarnings[2].message, true);
+                    }
+                    else if (TimeOfDay.Instance.currentDayTime >= 770 && !tidesWarnings[3].hasHappened)
+                    {
+                        Effects.MessageComputer(tidesWarnings[3].message);
+                        tidesWarnings[3] = (tidesWarnings[3].message, true);
+                    }
+                    else if (TimeOfDay.Instance.currentDayTime >= 962 && !tidesWarnings[4].hasHappened)
+                    {
+                        Effects.MessageComputer(tidesWarnings[4].message);
+                        tidesWarnings[4] = (tidesWarnings[4].message, true);
                     }
                 }
             }
@@ -114,6 +150,11 @@ namespace CombinedWeathersToolkit.Patches
                 originalEffectExist = true;
                 GreatFloodWaterRisingManager.searchForEffect = true;
                 GreatFloodWaterRisingManager.floodEffect = null;
+
+                for (int i = 0; i < GreatFloodWaterRisingManager.tidesWarnings.Count; i++)
+                {
+                    GreatFloodWaterRisingManager.tidesWarnings[i] = (GreatFloodWaterRisingManager.tidesWarnings[i].message, false);
+                }
             }
         }
     }

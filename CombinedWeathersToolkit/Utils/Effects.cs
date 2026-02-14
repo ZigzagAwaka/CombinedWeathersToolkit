@@ -102,5 +102,19 @@ namespace CombinedWeathersToolkit.Utils
         {
             HUDManager.Instance.DisplayTip(title, bottom, warning);
         }
+
+        public static void MessageComputer(params string[] messages)
+        {
+            var dialogue = new DialogueSegment[messages.Length];
+            for (int i = 0; i < messages.Length; i++)
+            {
+                dialogue[i] = new DialogueSegment
+                {
+                    speakerText = "PILOT COMPUTER",
+                    bodyText = messages[i]
+                };
+            }
+            HUDManager.Instance.ReadDialogue(dialogue);
+        }
     }
 }
