@@ -22,37 +22,112 @@ If you want the full experience, make sure to install as many weather mods as yo
 
 ### Superstorm *(stormy + flooded + tornado + hurricane)*
 
-![Preview](https://raw.githubusercontent.com/ZigzagAwaka/CombinedWeathersToolkit/main/Previews/Images/showcase2.PNG)
+![PreviewSuperstorm](https://raw.githubusercontent.com/ZigzagAwaka/CombinedWeathersToolkit/main/Previews/Images/showcase2.PNG)
 
 ### Snowfall + Majora Moon
 
-![Preview](https://raw.githubusercontent.com/ZigzagAwaka/CombinedWeathersToolkit/main/Previews/Images/showcase1.png)
+![PreviewSnowMajora](https://raw.githubusercontent.com/ZigzagAwaka/CombinedWeathersToolkit/main/Previews/Images/showcase1.png)
 
 ### Hallowed Eclipse *(hallowed + eclipsed)*
 
-![Preview](https://raw.githubusercontent.com/ZigzagAwaka/CombinedWeathersToolkit/main/Previews/Images/showcase3.PNG)
+![PreviewHallowEclips](https://raw.githubusercontent.com/ZigzagAwaka/CombinedWeathersToolkit/main/Previews/Images/showcase3.PNG)
+
+### Void Cyclone *(blackout + tornado)*
+
+![PreviewVoidCyclone](https://raw.githubusercontent.com/ZigzagAwaka/CombinedWeathersToolkit/main/Previews/Images/showcase9.PNG)
 
 ### Impending Storm *(none > rainy > cloudy > stormy > hurricane)*
 
-![Preview](https://raw.githubusercontent.com/ZigzagAwaka/CombinedWeathersToolkit/main/Previews/Images/showcase4.PNG)
+![PreviewImpendingStorm](https://raw.githubusercontent.com/ZigzagAwaka/CombinedWeathersToolkit/main/Previews/Images/showcase4.PNG)
 
 ### Meteor Shower + Blood Moon
 
-![Preview](https://raw.githubusercontent.com/ZigzagAwaka/CombinedWeathersToolkit/main/Previews/Images/showcase5.PNG)
+![PreviewMeteorBloodMoon](https://raw.githubusercontent.com/ZigzagAwaka/CombinedWeathersToolkit/main/Previews/Images/showcase5.PNG)
+
+### Orange Dream *(orange + snowfall + solarflare)*
+
+![PreviewOrangeDream](https://raw.githubusercontent.com/ZigzagAwaka/CombinedWeathersToolkit/main/Previews/Images/showcase10.PNG)
 
 ### Dark Blue Moon *(blue + bloodmoon)*
 
-![Preview](https://raw.githubusercontent.com/ZigzagAwaka/CombinedWeathersToolkit/main/Previews/Images/showcase6.PNG)
+![PreviewBlueMoon](https://raw.githubusercontent.com/ZigzagAwaka/CombinedWeathersToolkit/main/Previews/Images/showcase6.PNG)
 
 ### Toxic Winds *(toxicsmog + tornado)*
 
-![Preview](https://raw.githubusercontent.com/ZigzagAwaka/CombinedWeathersToolkit/main/Previews/Images/showcase7.png)
+![PreviewToxicWinds](https://raw.githubusercontent.com/ZigzagAwaka/CombinedWeathersToolkit/main/Previews/Images/showcase7.png)
 
-### The End of the World *(all weathers)*
+### The Pharaoh's Curse *(dustclouds + earthquakes + heatwave + rapture)*
 
-![Preview](https://raw.githubusercontent.com/ZigzagAwaka/CombinedWeathersToolkit/main/Previews/Images/showcase8.PNG)
+![PreviewPharaohCurse](https://raw.githubusercontent.com/ZigzagAwaka/CombinedWeathersToolkit/main/Previews/Images/showcase11.PNG)
+
+### The Great Flood *(flooded + rainy) [with a special effect]*
+
+![PreviewGreatFlood](https://raw.githubusercontent.com/ZigzagAwaka/CombinedWeathersToolkit/main/Previews/Images/showcase12.PNG)
+
+### The End of the World *(all available weather conditions)*
+
+![PreviewEndWorld](https://raw.githubusercontent.com/ZigzagAwaka/CombinedWeathersToolkit/main/Previews/Images/showcase8.PNG)
 
 **There is a lot more to discover by yourself 🤗**
+
+**<details><summary>[SPOILERS] Click here to see the full list of every weather this mod adds</summary>**
+
+- **Majora Eclipsed**: Eclipsed + Majora Moon
+- **Majora Chaos**: Rainy + Stormy + Eclipsed + Majora Moon
+- **Celestial Borealis**: Solar Flare + Majora Moon
+- **Cosmic Crash**: Meteor Shower + Majora Moon
+- **Dark Majora Moon**: Black fog + Majora Moon
+- **The Crimson Flood**: Flooded + Blood Moon
+- **Dark Blood Moon**: Black Fog + Blood Moon
+- **Majora Supermoon**: Majora Moon + Blood Moon
+- **Climate Anomaly**: Snowfall + Heatwave + Solar Flare
+- **Nuclear Winter**: Toxic Smog + Blizzard
+- **Hallowed Smog**: Toxic Smog + Hallowed
+- **Toxic Winds**: Toxic Smog + Tornado
+- **Black Winter**: Black Fog + Blizzard
+- **Ashen Mist**: Foggy + Toxic Smog
+- **Thermal Shift**: Blizzard > Snowfall > None > Solar Flare > Heatwave
+- **Gravitational Freeze**: Heatwave > Solar Flare> None > Snowfall > Blizzard
+- **Meteor Tempest**: Stormy + Tornado + Meteor Shower
+- **Gravity Anomaly**: Meteor Shower + Eclipsed + Solar Flare
+- **Superstorm**: Stormy + Flooded + Tornado + Hurricane
+- **Void Cyclone**: Blackout + Tornado
+- **Hallowed Eclipsed**: Hallowed + Eclipsed
+- **Forsaken Storm**: Stormy + Forsaken
+- **Impending Storm**: None > Rainy > Cloudy > Stormy > Hurricane
+- **Haunted**: Blackout + Hallowed + Black Fog
+- **Nocturne Frost**: Blackout + Blizzard
+- **Darkness**: Black Fog + Blackout
+- **Total Darkness**: Black Fog + Blackout + Foggy
+- **Blue Fog**: Blue + Black Fog
+- **Dark Blue Moon**: Blue + Blood Moon
+- **Blue Requiem**: Blue + Majora Moon
+- **Eternal Darkness**: Black Fog + Blackout + Foggy + Heatwave + Evil Blue
+- **Bloodlight Omen**: Blood Moon + Orange + Rapture
+- **The Pharaoh's Curse**: Dust Clouds + Earthquakes + Heatwave + Rapture
+- **Orange Dream**: Orange + Snowfall + Solar Flare
+- **Majora Tempest**: Gusty + Hurricane + Majora Moon
+- **Howling Winds**: Cloudy + Gusty + Earthquakes
+- **Striking Gust**: Gusty > Hurricane
+- **The Great Flood**: Flooded + Rainy *[with a special effect]*
+- **The End of the World**: *All weather conditions (except those that don't work well together)*
+- Rainy + Majora Moon
+- Snowfall + Majora Moon
+- Tornado + Majora Moon
+- Hallowed + Majora Moon
+- Snowfall + Blood Moon
+- Toxic Smog + Blood Moon
+- Meteor Shower + Blood Moon
+- Forsaken + Blood Moon
+- Heatwave + Blizzard
+- Black Fog + Heatwave
+- Black Fog + Snowfall
+- Foggy + Meteor Shower
+- Flooded + Hallowed
+- Rainy + Earthquakes + Solar Flare
+- Gusty + Forsaken + Orange
+
+</details>
 
 </details>
 
@@ -70,7 +145,7 @@ The mod supports multiple ways of registering a weather. The sections below expl
 
 To register a new custom weather you need to open the `zigzag.combinedweatherstoolkit.cfg` config file, then navigate to the `Config weathers` section.
 
-![Preview](https://raw.githubusercontent.com/ZigzagAwaka/CombinedWeathersToolkit/main/Previews/Doc/config1.PNG)
+![PreviewConfigBase](https://raw.githubusercontent.com/ZigzagAwaka/CombinedWeathersToolkit/main/Previews/Doc/config1.PNG)
 
 You will see a config named `Weather Config creator`: this is the place where you can create your own weather effects. Just below it is an example that can be used to learn what is the accepted data format when creating a weather and here is what it looks like :
 
@@ -80,11 +155,11 @@ The format is very simple as you can see, this line will actually register the c
 
 You can actually add as much value as you want, each one separated by a comma `,`. To make the process easier, you can click on the little arrows icon on the right of the config to expand the field :
 
-![Preview](https://raw.githubusercontent.com/ZigzagAwaka/CombinedWeathersToolkit/main/Previews/Doc/config2.PNG)
+![PreviewConfigEntry](https://raw.githubusercontent.com/ZigzagAwaka/CombinedWeathersToolkit/main/Previews/Doc/config2.PNG)
 
 Then you can very easily add each custom weathers in this new window by clicking on the `Edit as list` option. In this place you can add as much entries as you want and it's way easier to see what's going on :
 
-![Preview](https://raw.githubusercontent.com/ZigzagAwaka/CombinedWeathersToolkit/main/Previews/Doc/config3.PNG)
+![PreviewConfigList](https://raw.githubusercontent.com/ZigzagAwaka/CombinedWeathersToolkit/main/Previews/Doc/config3.PNG)
 
 This is very nice but what can the config do more ? Well, the config can also accept a custom color and type. Here's all the possible parameters :
 
@@ -97,7 +172,7 @@ This is very nice but what can the config do more ? Well, the config can also ac
 
 Each of these parameters needs to be separated with a colon `:`, and so if you combine everything you will get something like this in the config :
 
-![Preview](https://raw.githubusercontent.com/ZigzagAwaka/CombinedWeathersToolkit/main/Previews/Doc/config4.PNG)
+![PreviewConfigListFull](https://raw.githubusercontent.com/ZigzagAwaka/CombinedWeathersToolkit/main/Previews/Doc/config4.PNG)
 
 *<details><summary>Additional notes</summary>*
 
@@ -115,7 +190,7 @@ When it is done, **launch the game and go into orbit** so [WeatherRegistry](http
 
 Weathers created using this mod will be listed as `WeatherToolkit Weathers` in WeatherRegistry's config file.
 
-![Preview](https://raw.githubusercontent.com/ZigzagAwaka/CombinedWeathersToolkit/main/Previews/Doc/config5.PNG)
+![PreviewConfigWeathers](https://raw.githubusercontent.com/ZigzagAwaka/CombinedWeathersToolkit/main/Previews/Doc/config5.PNG)
 
 That's pretty much it ! Hope you can create some crazy effects with this mod 🙂
 
@@ -214,29 +289,21 @@ That's pretty much it ! Hope you can create some crazy effects with this mod �
 
 <details><summary>Creating color gradients</summary>
 
-- **Since the 1.1.0 update of this mod**, it is now possible to create a color gradient for the color of the name of your weather as seen on the ship's computer when in orbit !
+#### **Since the 1.1.0 update of this mod**, it is now possible to create a color gradient for the color of the name of your weather as seen on the ship's computer when in orbit !
 
-- Whether you are using .json files or the config, the gradients are created the same way : **simply replace your original color value by a succession of multiple colors separated by a `/`** ! For example :
-    - `#ff0000` can be replaced by something in the form of `#ff0000/#00ff00/#0000ff/#ffffff` to create a four corner gradient with red, green, blue and white colors. Each color representing the specified corners in this order : Top Left / Top Right / Bottom Left / Bottom Right
-    - Other gradient formats are accepted, such as : `red/#00ff00/blue/blue` which will create a blue color at the bottom and red/green color at the top
-    - Only writting 2 colors `color1/color2` will create an horizontal gradient (the same as `color1/color2/color1/color2`)
-    - Only writting 3 colors `color1/color2/color3` will create an horizontal gradient but with a single color at the bottom (the same as `color1/color2/color3/color3`)
-    - Creating a vertical gradient is possible by doing this `color1/color1/color2/color2`
-    - Writting 4 colors `color1/color2/color3/color4` will create a four corner gradient as already explained above
+<img src="https://raw.githubusercontent.com/ZigzagAwaka/CombinedWeathersToolkit/main/Previews/Doc/gradient1.png" alt="PreviewGradient" width="500"/>
 
-- To help understanding gradients, please take a look at [the documentation](https://docs.unity3d.com/2022.3/Documentation/Manual/UIE-color-gradient.html).
+Whether you are using .json files or the config, the gradients are created the same way : **simply replace your original color value by a succession of multiple colors separated by a `/`** ! For example :
+- `#ff0000` can be replaced by something in the form of `#ff0000/#00ff00/#0000ff/#ffffff` to create a four corner gradient with red, green, blue and white colors. Each color representing the specified corners in this order : Top Left / Top Right / Bottom Left / Bottom Right
+- Other gradient formats are accepted, such as : `red/#00ff00/blue/blue` which will create a blue color at the bottom and red/green color at the top
+- Only writting 2 colors `color1/color2` will create an horizontal gradient (the same as `color1/color2/color1/color2`)
+- Only writting 3 colors `color1/color2/color3` will create an horizontal gradient but with a single color at the bottom (the same as `color1/color2/color3/color3`)
+- Creating a vertical gradient is possible by doing this `color1/color1/color2/color2`
+- Writting 4 colors `color1/color2/color3/color4` will create a four corner gradient as already explained above
 
-- To help creating gradients, I made a small html tool that you can download [here](https://github.com/ZigzagAwaka/CombinedWeathersToolkit/blob/main/GradientGenerator/GradientTest.html) and open using any internet browser : it can be used to edit a four corner color gradient in real time that you can use as a reference for creating your very own gradient !
+To help understanding gradients, please take a look at [the documentation](https://docs.unity3d.com/2022.3/Documentation/Manual/UIE-color-gradient.html).
 
-</details>
-
-</br>
-
-<details><summary>Using code</summary>
-
-- While this tool was not meant to be used by code, I guess you can still use it if you like. However if you really want to use code, well you can also use [WeatherTweaks](https://thunderstore.io/c/lethal-company/p/mrov/WeatherTweaks/) directly.
-
-- If you want to use code from this mod you can do so by instanciating a new `ToolkitWeather` class, then populate it with the data you want (name, color, weights, weathers, etc) then call `Register()` on this object. For an example on how it works in practice you can look at [this code](https://github.com/ZigzagAwaka/CombinedWeathersToolkit/blob/main/CombinedWeathersToolkit/Toolkit/PredefinedRegistery.cs).
+To help creating gradients, I made a small html tool that you can download [here](https://github.com/ZigzagAwaka/CombinedWeathersToolkit/blob/main/GradientGenerator/GradientTest.html) and open using any internet browser : it can be used to edit a four corner color gradient in real time that you can use as a reference for creating your very own gradient !
 
 </details>
 
@@ -258,7 +325,19 @@ If you want to test how a specific weather combo will look like before creating 
 
 ***When using `/cwt weathername` make sure to enter the name with no whitespace and no capital letters!***
 
-![Preview](https://raw.githubusercontent.com/ZigzagAwaka/CombinedWeathersToolkit/main/Previews/Doc/debug1.PNG)
+![PreviewDebug](https://raw.githubusercontent.com/ZigzagAwaka/CombinedWeathersToolkit/main/Previews/Doc/debug1.PNG)
+
+</details>
+
+</br>
+
+<details><summary>Using code</summary>
+
+</br>
+
+While this tool was not meant to be used by code, I guess you can still use it if you like. However if you really want to use code, well you can also use [WeatherTweaks](https://thunderstore.io/c/lethal-company/p/mrov/WeatherTweaks/) directly.
+
+If you want to use code from this mod you can do so by instanciating a new `ToolkitWeather` class, then populate it with the data you want (name, color, weights, weathers, etc) then call `Register()` on this object. For an example on how it works in practice you can look at [this code](https://github.com/ZigzagAwaka/CombinedWeathersToolkit/blob/main/CombinedWeathersToolkit/Toolkit/PredefinedRegistery.cs).
 
 </details>
 
