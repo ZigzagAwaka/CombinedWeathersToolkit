@@ -98,6 +98,11 @@ namespace CombinedWeathersToolkit.Utils
             return WeatherManager.GetWeather(weatherType);
         }
 
+        public static void ForceSetWeatherAlgorithm(string weatherName)
+        {
+            Plugin.config.UniqueWeatherAlgorithm.Value = weatherName;
+        }
+
         public static void Message(string title, string bottom, bool warning = false)
         {
             HUDManager.Instance.DisplayTip(title, bottom, warning);

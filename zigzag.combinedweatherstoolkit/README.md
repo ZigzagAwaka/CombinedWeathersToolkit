@@ -322,6 +322,7 @@ If you want to test how a specific weather combo will look like before creating 
 | `/cwt clear` | *none* | Remove all active weathers on the actual moon |
 | `/cwt weathername` | a wanted valid weather name | Spawn the wanted weather as a combined weather effect with the previous ones |
 | `/cwt list` | *none* | Display a message listing all active weathers |
+| `/cwt algo` | a wanted valid weather name | Update the `Unique weather Algorithm` config value live, this will override the next weather when in orbit on all moons *(don't specify a parameter to reset the algorithm)* |
 
 ***When using `/cwt weathername` make sure to enter the name with no whitespace and no capital letters!***
 

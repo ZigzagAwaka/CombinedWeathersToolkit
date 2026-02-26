@@ -1,5 +1,6 @@
 ﻿using CombinedWeathersToolkit.Utils;
 using HarmonyLib;
+using System.Linq;
 
 namespace CombinedWeathersToolkit.Patches
 {
@@ -35,6 +36,14 @@ namespace CombinedWeathersToolkit.Patches
                     break;
                 case "list":
                     Effects.Message("Debug CWT", "Current weathers: " + Effects.GetListOfCurrentWeathers());
+                    break;
+                case "algo":
+                    string weatherName = command.Length > 2 ? string.Join(" ", command.Skip(2)) : "";
+                    Effects.ForceSetWeatherAlgorithm(weatherName);
+                    if (weatherName != "")
+                        Effects.Message("Debug CWT", "Forced weather algorithm to " + weatherName);
+                    else
+                        Effects.Message("Debug CWT", "Reseted weather algorithm to normal behavior");
                     break;
                 default:
                     Effects.AddCombinedWeather(command[1]);
