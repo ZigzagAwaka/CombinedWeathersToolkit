@@ -8,7 +8,7 @@
 
 - And finally, the mod also comes with **50+ predefined custom weathers**! So anyone can just install it and play.
 
-Compatible with **v73** of Lethal Company.
+Compatible with **v73/v81** of Lethal Company.
 
 ##
 

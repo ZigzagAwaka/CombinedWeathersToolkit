@@ -1,6 +1,6 @@
 {
     "name": "Combined_Weathers_Toolkit",
-    "version_number": "1.1.1",
+    "version_number": "1.1.2",
     "website_url": "https://github.com/ZigzagAwaka/CombinedWeathersToolkit",
     "description": "Provides easy ways for developers and users to register combined weather effects in WeatherTweaks without needing to write code. Also comes with some predefined combined weathers!",
     "dependencies": [
@@ -8,6 +8,6 @@
         "mrov-WeatherRegistry-0.8.5",
         "Hardy-LCMaxSoundsFix-1.2.0",
         "BepInEx-BepInExPack-5.4.2100",
-        "Evaisa-LethalLib-1.1.1"
+        "Evaisa-LethalLib-1.2.0"
     ]
 }
